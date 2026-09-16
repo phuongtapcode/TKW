@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bài hoạt động thực hành Flexbox và CSS Grid của Ngọc Hiếu.">
+  <title>Hoạt động thực hành | Ngọc Hiếu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="practice.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">NH<span>.</span></a>
+    <nav aria-label="Điều hướng bài thực hành">
+      <a href="#battle">Flex & Grid Battle</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#debug">Debug & Refactor</a>
+    </nav>
+    <a class="back-link" href="index.html">← Portfolio</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Tuần 3 · CSS Layout System</p>
+      <h1>Hoạt động<br><span>thực hành.</span></h1>
+      <p class="lead">Ba hoạt động vận dụng Box Model, Flexbox và CSS Grid để xây dựng bố cục rõ ràng, linh hoạt và dễ bảo trì.</p>
+    </section>
+
+    <section id="battle" class="activity">
+      <header class="activity-heading">
+        <div><span>01</span><p>30 phút</p></div>
+        <div><p class="eyebrow">Hoạt động 1</p><h2>Flex & Grid Battle</h2></div>
+      </header>
+
+      <article class="challenge">
+        <div class="challenge-copy">
+          <p class="tag">Thử thách 01</p>
+          <h3>Căn giữa phần tử</h3>
+          <p>Dùng Flexbox vì bài toán chỉ cần căn chỉnh theo hai trục trong một vùng chứa.</p>
+          <code>display: flex;<br>justify-content: center;<br>align-items: center;</code>
+        </div>
+        <div class="center-demo demo-frame"><div>Chính giữa</div></div>
+      </article>
+
+      <article class="challenge reverse">
+        <div class="challenge-copy">
+          <p class="tag">Thử thách 02</p>
+          <h3>Menu dàn đều</h3>
+          <p><code>justify-content: space-between</code> phân phối khoảng trống giữa các mục mà không cần margin thủ công.</p>
+        </div>
+        <nav class="menu-demo demo-frame" aria-label="Menu minh họa">
+          <a href="#">Trang chủ</a><a href="#">Dự án</a><a href="#">Kỹ năng</a><a href="#">Liên hệ</a>
+        </nav>
+      </article>
+
+      <article class="gallery-challenge">
+        <div class="challenge-copy">
+          <p class="tag">Thử thách 03</p>
+          <h3>Lưới ảnh 3 cột</h3>
+          <p>CSS Grid phù hợp vì cần kiểm soát đồng thời hàng và cột. Lưới tự chuyển thành hai hoặc một cột trên màn hình nhỏ.</p>
+        </div>
+        <div class="image-grid" aria-label="Lưới hình minh họa ba cột">
+          <figure class="visual visual-one"><span>01</span><figcaption>Shape</figcaption></figure>
+          <figure class="visual visual-two"><span>02</span><figcaption>Rhythm</figcaption></figure>
+          <figure class="visual visual-three"><span>03</span><figcaption>Space</figcaption></figure>
+          <figure class="visual visual-four"><span>04</span><figcaption>Color</figcaption></figure>
+          <figure class="visual visual-five"><span>05</span><figcaption>Grid</figcaption></figure>
+          <figure class="visual visual-six"><span>06</span><figcaption>Balance</figcaption></figure>
+        </div>
+      </article>
+    </section>
+
+    <section id="portfolio" class="activity dark-section">
+      <header class="activity-heading">
+        <div><span>02</span><p>60 phút</p></div>
+        <div><p class="eyebrow">Hoạt động 2</p><h2>Portfolio cá nhân</h2></div>
+      </header>
+      <div class="result-grid">
+        <div><strong>CSS Grid</strong><p>Khung tổng thể gồm Header, Sidebar, Main Content và Footer.</p></div>
+        <div><strong>Flexbox</strong><p>Navigation, danh sách kỹ năng và nội dung trong từng thẻ.</p></div>
+        <div><strong>Gap</strong><p>Khoảng cách đồng nhất, không phụ thuộc margin giữa các phần tử.</p></div>
+      </div>
+      <a class="result-link" href="index.html">Xem bài Portfolio hoàn chỉnh <span>↗</span></a>
+    </section>
+
+    <section id="debug" class="activity">
+      <header class="activity-heading">
+        <div><span>03</span><p>45 phút</p></div>
+        <div><p class="eyebrow">Hoạt động 3</p><h2>Debug & Refactor</h2></div>
+      </header>
+      <div class="debug-grid">
+        <article><span>Đã sửa</span><h3>Chữ bị chồng</h3><p>Tăng <code>line-height</code>, giảm cỡ chữ theo chiều rộng cột và dùng <code>clamp()</code> để giới hạn kích thước.</p></article>
+        <article><span>Đã tối ưu</span><h3>Khoảng cách rời rạc</h3><p>Dùng <code>gap</code> cho Grid và Flexbox, giữ margin chỉ cho nhịp dọc của nội dung.</p></article>
+        <article><span>Đã kiểm tra</span><h3>Vỡ layout</h3><p>Thêm breakpoint 900px và 620px; bố cục hai cột chuyển thành một cột trên màn hình hẹp.</p></article>
+        <article><span>Đã lược bỏ</span><h3>Thuộc tính dư</h3><p>Không dùng float, table layout hay position absolute để dựng khung trang.</p></article>
+      </div>
+      <div class="conclusion"><strong>Kết luận</strong><p>Grid dựng khung hai chiều. Flexbox căn chỉnh nội dung một chiều. Box Model kiểm soát kích thước. Mỗi công cụ được dùng đúng nhiệm vụ để CSS gọn và dễ bảo trì.</p></div>
+    </section>
+  </main>
+
+  <footer><p>Ngọc Hiếu · Thiết kế Web · Tuần 3</p><a href="#top">Lên đầu trang ↑</a></footer>
+</body>
+</html>

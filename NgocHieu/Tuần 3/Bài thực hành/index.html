@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio cá nhân của Ngọc Hiếu — bài thực hành CSS Grid và Flexbox.">
+  <title>Ngọc Hiếu | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Về đầu trang">NH<span>.</span></a>
+      <nav aria-label="Điều hướng chính">
+        <a href="#about">Giới thiệu</a>
+        <a href="#skills">Kỹ năng</a>
+        <a href="#projects">Dự án</a>
+        <a href="practice.html">Thực hành</a>
+      </nav>
+      <a class="contact-link" href="mailto:ngochieu@example.com">Liên hệ <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <aside class="sidebar" id="home">
+      <div class="profile-mark" aria-hidden="true">NH</div>
+      <p class="eyebrow">Web Design Student</p>
+      <h1>Trần Ngọc<br><em>Hiếu</em></h1>
+      <p class="intro">Mình thiết kế những trải nghiệm web rõ ràng, linh hoạt và có cá tính.</p>
+      <div class="status"><span></span> Sẵn sàng cho dự án mới</div>
+      <div class="socials" aria-label="Mạng xã hội">
+        <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="mailto:ngochieu@example.com">Email</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="hero" id="about">
+        <p class="section-number">01 / Giới thiệu</p>
+        <h2>Biến ý tưởng thành giao diện <span>có cấu trúc.</span></h2>
+        <div class="about-grid">
+          <p>Mình là sinh viên Thiết kế Web, tập trung xây dựng giao diện hiện đại bằng HTML và CSS. Mỗi bố cục đều bắt đầu từ nội dung, sau đó được tổ chức bằng Grid và hoàn thiện bằng Flexbox.</p>
+          <dl>
+            <div><dt>Đang học</dt><dd>CSS Layout</dd></div>
+            <div><dt>Địa điểm</dt><dd>Việt Nam</dd></div>
+            <div><dt>Mục tiêu</dt><dd>Front-end Developer</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="skills">
+        <p class="section-number">02 / Kỹ năng</p>
+        <div class="section-heading">
+          <h2>Công cụ mình<br>đang làm chủ.</h2>
+          <p>Các thẻ kỹ năng dùng Flexbox và tự xuống dòng theo kích thước màn hình.</p>
+        </div>
+        <div class="skill-list">
+          <span>HTML5</span><span>CSS3</span><span>Flexbox</span><span>CSS Grid</span>
+          <span>Responsive</span><span>Git & GitHub</span><span>Figma</span><span>UI Design</span>
+        </div>
+      </section>
+
+      <section id="projects">
+        <p class="section-number">03 / Dự án</p>
+        <div class="section-heading">
+          <h2>Một vài bài làm<br>gần đây.</h2>
+          <p>Project Gallery được tổ chức bằng CSS Grid với sáu thẻ có kích thước đồng đều.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project featured"><span class="project-index">01</span><div><p>Portfolio</p><h3>Personal Identity</h3><small>HTML · CSS Grid</small></div><span class="arrow">↗</span></article>
+          <article class="project coral"><span class="project-index">02</span><div><p>Landing Page</p><h3>Daily Coffee</h3><small>Flexbox · UI</small></div><span class="arrow">↗</span></article>
+          <article class="project blue"><span class="project-index">03</span><div><p>Gallery</p><h3>Urban Frames</h3><small>Grid · Responsive</small></div><span class="arrow">↗</span></article>
+          <article class="project lime"><span class="project-index">04</span><div><p>Dashboard</p><h3>Study Flow</h3><small>Layout · Cards</small></div><span class="arrow">↗</span></article>
+          <article class="project violet"><span class="project-index">05</span><div><p>Web Concept</p><h3>Music Space</h3><small>Typography · CSS</small></div><span class="arrow">↗</span></article>
+          <article class="project sand"><span class="project-index">06</span><div><p>Mini Project</p><h3>Travel Notes</h3><small>Semantic HTML</small></div><span class="arrow">↗</span></article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Ngọc Hiếu</p>
+      <p>Thiết kế bằng Grid + Flexbox</p>
+      <a href="#home">Lên đầu trang ↑</a>
+    </footer>
+  </div>
+</body>
+</html>
