@@ -1,0 +1,330 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 1100px;
+    max-width: calc(100% - 40px);
+    margin: 30px auto;
+
+    display: grid;
+
+    /* DESKTOP:
+       250px = Sidebar
+       1fr   = Main
+    */
+    grid-template-columns: 250px 1fr;
+
+    gap: 20px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    grid-column: 1 / -1;
+
+    padding: 40px;
+    background-color: white;
+
+    border: 1px solid #ddd;
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+.header h1 {
+    margin-bottom: 10px;
+    font-size: 36px;
+}
+
+.header p {
+    font-size: 18px;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    background-color: white;
+
+    border: 1px solid #ddd;
+    border-radius: 12px;
+
+    padding: 25px;
+}
+
+
+/* Profile */
+
+.profile {
+    text-align: center;
+
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    background-color: #ddd;
+
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.profile h2 {
+    margin-bottom: 5px;
+}
+
+
+/* Menu */
+
+.menu {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.menu a {
+    display: block;
+
+    padding: 12px;
+
+    text-decoration: none;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.menu a:hover {
+    background-color: #eee;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    background-color: white;
+
+    padding: 30px;
+
+    border: 1px solid #ddd;
+    border-radius: 12px;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+
+    font-size: 28px;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skills {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.skill {
+    padding: 20px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.skill h3 {
+    margin-bottom: 5px;
+}
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.project-card {
+    padding: 25px;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    width: 1100px;
+    max-width: calc(100% - 40px);
+
+    margin: 0 auto 30px;
+
+    padding: 25px;
+
+    background-color: white;
+
+    border: 1px solid #ddd;
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   RESPONSIVE - MOBILE
+   Màn hình <= 768px
+================================================== */
+
+@media (max-width: 768px) {
+
+    /* --------------------------------
+       CONTAINER:
+       2 cột -> 1 cột
+    -------------------------------- */
+
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* --------------------------------
+       HEADER
+    -------------------------------- */
+
+    .header {
+        grid-column: auto;
+    }
+
+
+    /* --------------------------------
+       SIDEBAR
+       Sidebar tự nằm trên Main
+    -------------------------------- */
+
+    .sidebar {
+        order: 2;
+    }
+
+
+    /* --------------------------------
+       MAIN
+    -------------------------------- */
+
+    .main {
+        order: 3;
+    }
+
+
+    /* --------------------------------
+       PROJECTS:
+       3 cột -> 1 cột
+    -------------------------------- */
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* --------------------------------
+       SKILLS:
+       2 cột -> 1 cột
+    -------------------------------- */
+
+    .skills {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* --------------------------------
+       HEADER TEXT
+    -------------------------------- */
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+}
