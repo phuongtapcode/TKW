@@ -3,75 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="description" content="Nhóm thiết kế và phát triển website chuyên nghiệp, hiện đại, tương thích hoàn hảo mọi model máy với giao diện bo tròn tinh tế.">
+  <meta name="description" content="Nhóm thiết kế và phát triển website chuyên nghiệp, sáng tạo, tương thích hoàn hảo mọi thiết bị.">
   <title>Nhóm Thiết Kế Web • Creative Studio & Portfolio</title>
   
-  <!-- Phông chữ Google Fonts: Be Vietnam Pro, Lora & DM Mono -->
+  <!-- Nhúng phông chữ tiếng Việt chuẩn Google Fonts: Be Vietnam Pro, Lora & DM Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Mono:wght@400;500&family=Lora:ital,wght@0,500;1,400;1,500;1,600&display=swap" rel="stylesheet">
   
   <style>
     /* ==========================================================================
-       NHÓM THIẾT KẾ WEB - ALL-IN-ONE (THUẦN HTML & CSS)
-       Tương thích chuẩn 100% mọi model máy | Chống tràn màn hình tuyệt đối | Bo tròn mềm mại
+       PHẦN 1: THIẾT LẬP BIẾN MÀU, BÁN KÍNH BO TRÒN & PHÔNG CHỮ (DESIGN TOKENS)
+       Chức năng: Quản lý tập trung toàn bộ màu sắc, font, bo góc và bóng đổ.
        ========================================================================== */
-
-    /* 1. BIẾN MÀU & THIẾT LẬP THƯƠNG HIỆU */
     :root {
       color-scheme: light;
 
-      /* Màu nền và bề mặt */
-      --bg-page: #f8f6f1;
-      --bg-page-subtle: #f0ece3;
-      --bg-surface: #ffffff;
-      --bg-surface-soft: #f4f1e8;
+      /* Màu nền trang & bề mặt thẻ */
+      --bg-page: #f8f6f1;          /* Nền kem ấm áp, sang trọng */
+      --bg-page-subtle: #f0ece3;   /* Nền kem đậm hơn cho các section xen kẽ */
+      --bg-surface: #ffffff;       /* Nền trắng tinh khiết cho các thẻ card */
+      --bg-surface-soft: #f4f1e8;  /* Nền phụ cho nhãn và icon con */
 
-      /* Màu chủ đạo (Xanh ngọc lục bảo & Xanh lá mạ) */
-      --color-forest: #143e33;
-      --color-forest-dark: #0c2720;
-      --color-forest-light: #1c5244;
-      --color-leaf: #8da633;
-      --color-leaf-hover: #788f28;
-      --color-leaf-soft: #edf3d5;
+      /* Bảng màu thương hiệu chính */
+      --color-forest: #143e33;       /* Xanh ngọc lục bảo đậm (Primary) */
+      --color-forest-dark: #0c2720;  /* Xanh rêu đậm khi hover */
+      --color-forest-light: #1c5244; /* Xanh ngọc sáng */
+      --color-leaf: #8da633;         /* Xanh lá mạ tươi mới (Accent) */
+      --color-leaf-hover: #788f28;   /* Xanh lá đậm khi rê chuột */
+      --color-leaf-soft: #edf3d5;    /* Nền xanh nhạt cho huy hiệu */
 
-      /* Điểm nhấn ấm áp (Cam đất hoàng hôn) */
-      --color-terracotta: #e58252;
-      --color-terracotta-soft: #fcf0e9;
+      /* Màu điểm nhấn phụ */
+      --color-terracotta: #e58252;      /* Cam đất hoàng hôn ấm cúng */
+      --color-terracotta-soft: #fcf0e9; /* Nền cam nhạt */
 
-      /* Màu chữ & tương phản */
-      --color-ink: #162822;
-      --color-muted: #56685f;
-      --color-subtle: #7f9086;
+      /* Màu chữ & tương phản chuẩn WCAG */
+      --color-ink: #162822;    /* Chữ chính: than chì đậm, cực rõ nét */
+      --color-muted: #56685f;  /* Chữ phụ: xám rêu êm mắt */
+      --color-subtle: #7f9086; /* Chữ nhãn nhỏ, số liệu */
 
-      /* Đường viền */
+      /* Đường viền tinh tế */
       --border-color: rgba(20, 62, 51, 0.1);
       --border-color-hover: rgba(20, 62, 51, 0.25);
 
-      /* Phông chữ */
+      /* Hệ thống phông chữ */
       --font-sans: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-serif: "Lora", Georgia, serif;
       --font-mono: "DM Mono", monospace;
 
-      /* Bo tròn các góc */
+      /* Hệ thống bo tròn mềm mại (Rounded Aesthetic) */
       --radius-xs: 8px;
       --radius-sm: 14px;
       --radius-md: 20px;
-      --radius-lg: 24px;
-      --radius-xl: 32px;
-      --radius-pill: 999px;
+      --radius-lg: 24px;   /* Bo tròn thẻ card chính */
+      --radius-xl: 32px;   /* Bo tròn khối CTA lớn */
+      --radius-pill: 999px;/* Bo tròn con nhộng cho nút bấm & badge */
 
-      /* Đổ bóng tự nhiên */
+      /* Hiệu ứng bóng đổ tự nhiên */
       --shadow-sm: 0 4px 14px rgba(20, 62, 51, 0.04);
       --shadow-card: 0 10px 28px -4px rgba(20, 62, 51, 0.06), 0 3px 10px -2px rgba(20, 62, 51, 0.03);
       --shadow-hover: 0 20px 40px -6px rgba(20, 62, 51, 0.12), 0 6px 14px -3px rgba(20, 62, 51, 0.04);
 
-      /* Kích thước Header & chuyển cảnh */
-      --header-h: 76px;
-      --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      /* Chiều cao Header cố định */
+      --header-h: 74px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* 2. RESET & KHÓA CHỐNG TRÀN TOÀN TRANG (ZERO HORIZONTAL OVERFLOW) */
+    /* ==========================================================================
+       PHẦN 2: THIẾT LẬP CƠ BẢN, CUỘN TRANG ÊM ÁI & CHỐNG TRÀN TOÀN DIỆN
+       Chức năng: Khóa tràn ngang trên mobile, cuộn mượt mà không bị Header che chữ.
+       ========================================================================== */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -81,13 +82,13 @@
     html, body {
       width: 100%;
       max-width: 100%;
-      overflow-x: hidden; /* Ngăn chặn tuyệt đối tình trạng tràn ngang / cắt lẹm nội dung */
+      overflow-x: hidden; /* Chống tràn lề ngang tuyệt đối */
       position: relative;
     }
 
     html {
-      scroll-behavior: smooth;
-      scroll-padding-top: calc(var(--header-h) + 16px);
+      scroll-behavior: smooth; /* Cuộn trang êm ái khi bấm vào các mục header */
+      scroll-padding-top: calc(var(--header-h) + 16px); /* Đệm đỉnh để không bị che */
       -webkit-text-size-adjust: 100%;
     }
 
@@ -103,7 +104,7 @@
       overflow-wrap: break-word;
     }
 
-    /* Khi ấn nhảy tới mục nào sẽ cách Header một khoảng vừa vặn */
+    /* Đảm bảo khi nhảy tới mục nào qua ID thì dừng lại chuẩn xác */
     section[id], div[id] {
       scroll-margin-top: calc(var(--header-h) + 16px);
     }
@@ -127,7 +128,7 @@
       cursor: pointer;
     }
 
-    /* Nút nhảy nhanh cho trợ năng */
+    /* Trợ năng: Phím tắt bỏ qua tới nội dung chính cho người khiếm thị */
     .skip-link {
       position: absolute;
       top: -80px;
@@ -151,12 +152,15 @@
       outline-offset: 3px;
     }
 
-    /* 3. KHUNG BỐ CỤC CHUẨN (CONTAINER CÓ PADDING AN TOÀN TRÊN MỌI MÁY) */
+    /* ==========================================================================
+       PHẦN 3: BỐ CỤC CHUNG (CONTAINER & SECTION)
+       Chức năng: Căn giữa nội dung, tạo khoảng cách lề an toàn hai bên mép.
+       ========================================================================== */
     .section-wrap {
       width: 100%;
       max-width: 1160px;
       margin-inline: auto;
-      padding-inline: 24px; /* Luôn đảm bảo mép trái và mép phải cách lề an toàn */
+      padding-inline: 24px;
     }
 
     .section-block {
@@ -172,7 +176,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      margin-bottom: 32px;
+      margin-bottom: 30px;
       width: 100%;
     }
 
@@ -186,7 +190,7 @@
     }
 
     .section-title {
-      font-size: clamp(26px, 3.6vw, 44px);
+      font-size: clamp(26px, 3.5vw, 42px);
       line-height: 1.22;
       font-weight: 700;
       letter-spacing: -0.035em;
@@ -207,7 +211,7 @@
       justify-content: space-between;
       align-items: flex-end;
       gap: 28px;
-      margin-bottom: 36px;
+      margin-bottom: 34px;
       width: 100%;
     }
 
@@ -218,7 +222,7 @@
       color: var(--color-muted);
     }
 
-    /* Chỉ dẫn vuốt ngang trên màn hình điện thoại / máy nhỏ */
+    /* Chỉ dẫn vuốt ngang trên điện thoại */
     .swipe-hint {
       display: none;
       align-items: center;
@@ -231,15 +235,12 @@
       border-radius: var(--radius-pill);
       width: fit-content;
       margin-bottom: 14px;
-      animation: pulse-hint 2s infinite ease-in-out;
     }
 
-    @keyframes pulse-hint {
-      0%, 100% { transform: translateX(0); }
-      50% { transform: translateX(4px); }
-    }
-
-    /* 4. PHẦN TỬ GIAO DIỆN BO TRÒN (PILLS, BUTTONS, BADGES) */
+    /* ==========================================================================
+       PHẦN 4: PHẦN TỬ GIAO DIỆN (NÚT BẤM, HUY HIỆU, CHẤM TRẠNG THÁI)
+       Chức năng: Các nút bấm bo tròn dáng viên thuốc, tương tác khi rê chuột.
+       ========================================================================== */
     .eyebrow-pill {
       display: inline-flex;
       align-items: center;
@@ -270,7 +271,6 @@
       border-radius: 50%;
       background-color: var(--color-leaf);
       box-shadow: 0 0 0 3px rgba(141, 166, 51, 0.25);
-      animation: pulse-dot 2.5s infinite ease-in-out;
       flex-shrink: 0;
     }
 
@@ -279,18 +279,7 @@
       box-shadow: 0 0 0 3px rgba(185, 216, 86, 0.3);
     }
 
-    @keyframes pulse-dot {
-      0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 3px rgba(141, 166, 51, 0.25);
-      }
-      50% {
-        transform: scale(1.15);
-        box-shadow: 0 0 0 6px rgba(141, 166, 51, 0.08);
-      }
-    }
-
-    /* Nút bấm bo tròn dáng viên thuốc */
+    /* Nút bấm bo tròn con nhộng */
     .button {
       display: inline-flex;
       align-items: center;
@@ -314,24 +303,11 @@
       box-shadow: 0 8px 18px rgba(20, 62, 51, 0.16);
     }
 
-    .button-primary:hover {
-      background-color: var(--color-forest-light);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px rgba(20, 62, 51, 0.22);
-    }
-
     .button-outline {
       background-color: var(--bg-surface);
       color: var(--color-ink);
       border: 1px solid var(--border-color);
       box-shadow: var(--shadow-sm);
-    }
-
-    .button-outline:hover {
-      border-color: var(--color-forest);
-      color: var(--color-forest);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-card);
     }
 
     .button-light {
@@ -340,31 +316,16 @@
       box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
     }
 
-    .button-light:hover {
-      background-color: var(--color-leaf-soft);
-      color: var(--color-forest-dark);
-      transform: translateY(-2px);
-    }
-
     .button-ghost {
       background-color: rgba(255, 255, 255, 0.1);
       color: #ffffff;
       border: 1px solid rgba(255, 255, 255, 0.25);
     }
 
-    .button-ghost:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-    }
-
     .btn-arrow {
       font-size: 16px;
       line-height: 1;
       transition: transform 0.25s ease;
-    }
-
-    .button:hover .btn-arrow {
-      transform: translateX(4px);
     }
 
     .text-link {
@@ -392,14 +353,17 @@
       transition: transform 0.25s ease;
     }
 
-    /* 5. HEADER CỐ ĐỊNH AN TOÀN (KHÔNG BỊ LẸM TRÊN MỌI MÀN HÌNH) */
+    /* ==========================================================================
+       PHẦN 5: HEADER & THANH ĐIỀU HƯỚNG (ĐẦY ĐỦ 7 MỤC TRÊN DESKTOP & MOBILE)
+       Chức năng: Cố định trên cùng (sticky), hiển thị rõ ràng toàn bộ 7 mục.
+       ========================================================================== */
     .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
       width: 100%;
       height: var(--header-h);
-      background-color: rgba(248, 246, 241, 0.94);
+      background-color: rgba(248, 246, 241, 0.95);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border-color);
@@ -411,45 +375,40 @@
       width: 100%;
       max-width: 1160px;
       margin-inline: auto;
-      padding-inline: 24px;
+      padding-inline: 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 12px;
     }
 
     /* Logo thương hiệu */
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       flex-shrink: 0;
     }
 
     .brand-mark {
-      width: 28px;
-      height: 25px;
+      width: 26px;
+      height: 24px;
       display: flex;
       align-items: flex-end;
-      gap: 3.5px;
+      gap: 3px;
       transform: skew(-14deg);
     }
 
     .brand-mark span {
       display: block;
-      width: 6px;
+      width: 5.5px;
       border-radius: var(--radius-pill);
       background-color: var(--color-forest);
-      transition: transform 0.3s ease;
     }
 
-    .brand-mark span:nth-child(1) { height: 14px; }
-    .brand-mark span:nth-child(2) { height: 23px; background-color: var(--color-leaf); }
-    .brand-mark span:nth-child(3) { height: 18px; }
-
-    .brand:hover .brand-mark span {
-      transform: translateY(-2px);
-    }
+    .brand-mark span:nth-child(1) { height: 13px; }
+    .brand-mark span:nth-child(2) { height: 22px; background-color: var(--color-leaf); }
+    .brand-mark span:nth-child(3) { height: 17px; }
 
     .brand-text {
       display: flex;
@@ -457,9 +416,9 @@
     }
 
     .brand-title {
-      font-size: 14.5px;
+      font-size: 14px;
       font-weight: 800;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
       color: var(--color-ink);
       line-height: 1.2;
     }
@@ -469,37 +428,24 @@
     }
 
     .brand-sub {
-      font-size: 8.5px;
+      font-size: 8px;
       font-weight: 600;
       color: var(--color-subtle);
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
     }
 
-    /* Menu điều hướng desktop */
-    .nav-menu {
-      position: relative;
-    }
-
-    .menu-toggle {
-      display: none;
-      list-style: none;
-    }
-
-    .menu-toggle::-webkit-details-marker {
-      display: none;
-    }
-
-    .site-nav {
+    /* MENU TRÊN DESKTOP: Hiển thị dàn ngang rõ ràng 7 mục */
+    .desktop-nav {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
     }
 
     .nav-item {
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--color-muted);
-      padding: 7px 12px;
+      padding: 6px 10px;
       border-radius: var(--radius-pill);
       transition: var(--transition);
       white-space: nowrap;
@@ -514,16 +460,16 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 8px 18px;
+      padding: 7px 16px;
       background-color: var(--bg-surface);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-pill);
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 700;
       color: var(--color-forest);
       box-shadow: var(--shadow-sm);
       transition: var(--transition);
-      margin-left: 6px;
+      margin-left: 4px;
       white-space: nowrap;
     }
 
@@ -531,19 +477,48 @@
       background-color: var(--color-forest);
       color: #ffffff;
       border-color: var(--color-forest);
-      box-shadow: 0 4px 14px rgba(20, 62, 51, 0.16);
-      transform: translateY(-2px);
     }
 
-    .nav-arrow {
-      transition: transform 0.25s ease;
+    /* MENU TRÊN MOBILE: Mặc định ẩn trên màn hình lớn */
+    .mobile-nav-container {
+      display: none;
+      position: relative;
     }
 
-    .nav-contact:hover .nav-arrow {
-      transform: translateX(3px);
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 38px;
+      height: 38px;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      list-style: none;
     }
 
-    /* 6. HERO SECTION GỌN GÀNG, HIỆN ĐẠI (KHÔNG BỊ TRÀN HAY QUÁ DÀI) */
+    .menu-toggle::-webkit-details-marker {
+      display: none;
+    }
+
+    .toggle-line {
+      display: block;
+      width: 16px;
+      height: 2px;
+      background-color: var(--color-ink);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* ==========================================================================
+       PHẦN 6: HERO SECTION (TRANG CHỦ) & MINH HỌA NGHỆ THUẬT SỐ
+       Chức năng: Tiêu đề lớn, giới thiệu, nút hành động và khung tranh minh họa.
+       ========================================================================== */
     .hero {
       position: relative;
       display: grid;
@@ -565,7 +540,7 @@
     }
 
     .hero-title {
-      font-size: clamp(32px, 4.4vw, 58px);
+      font-size: clamp(32px, 4.2vw, 56px);
       font-weight: 700;
       line-height: 1.15;
       letter-spacing: -0.04em;
@@ -622,7 +597,7 @@
       font-size: 11px;
     }
 
-    /* Khung minh họa nghệ thuật số Hero (Được bao bọc an toàn, không rò rỉ ra ngoài) */
+    /* Khung tranh minh họa Hero (Khóa chặt không cho tràn viền) */
     .hero-art-container {
       width: 100%;
       display: flex;
@@ -633,11 +608,11 @@
     .hero-art {
       width: 100%;
       max-width: 440px;
-      height: 420px;
+      height: 400px;
       position: relative;
       display: grid;
       place-items: center;
-      overflow: hidden; /* Giữ chặt toàn bộ các hình cầu, quỹ đạo bên trong */
+      overflow: hidden;
       border-radius: var(--radius-xl);
       background: radial-gradient(circle at 60% 40%, rgba(141, 166, 51, 0.12) 0%, rgba(229, 130, 82, 0.06) 60%, transparent 80%);
     }
@@ -650,41 +625,33 @@
     }
 
     .orbit-one {
-      width: 380px;
-      height: 260px;
+      width: 360px;
+      height: 250px;
       transform: rotate(-25deg);
-      animation: orbit-turn 50s linear infinite;
     }
 
     .orbit-two {
-      width: 300px;
-      height: 380px;
+      width: 290px;
+      height: 360px;
       transform: rotate(35deg);
-      animation: orbit-turn 65s linear infinite reverse;
-    }
-
-    @keyframes orbit-turn {
-      to { transform: rotate(360deg); }
     }
 
     .art-sun {
       position: absolute;
       top: 35px;
       right: 35px;
-      width: 90px;
-      height: 90px;
+      width: 85px;
+      height: 85px;
       background: linear-gradient(135deg, #a7c442 0%, #8ba633 100%);
       border-radius: 50%;
       box-shadow: 0 12px 28px rgba(139, 166, 51, 0.3);
-      animation: float-gentle 7s ease-in-out infinite;
     }
 
-    /* Thẻ nổi mô phỏng thiết kế */
     .art-paper {
       position: relative;
       z-index: 2;
-      width: 220px;
-      height: 270px;
+      width: 210px;
+      height: 260px;
       background: #ffffff;
       border: 1px solid rgba(255, 255, 255, 0.85);
       border-radius: var(--radius-md);
@@ -694,7 +661,6 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      animation: paper-float 8s ease-in-out infinite;
     }
 
     .paper-header {
@@ -720,7 +686,7 @@
     }
 
     .paper-shape {
-      height: 120px;
+      height: 115px;
       background: linear-gradient(145deg, #cbe07d 0%, #ebb490 50%, #205e4d 100%);
       border-radius: var(--radius-sm);
       position: relative;
@@ -753,7 +719,6 @@
       color: var(--color-muted);
     }
 
-    /* Các khối thông số bo tròn nằm an toàn trong khung */
     .art-block {
       position: absolute;
       z-index: 3;
@@ -771,7 +736,6 @@
       background-color: var(--color-forest);
       color: #ffffff;
       transform: rotate(-6deg);
-      animation: float-gentle 7.5s ease-in-out infinite 0.5s;
     }
 
     .block-orange {
@@ -780,7 +744,6 @@
       background-color: var(--color-terracotta);
       color: #ffffff;
       transform: rotate(6deg);
-      animation: float-gentle 8.5s ease-in-out infinite 1s;
     }
 
     .block-icon {
@@ -812,20 +775,12 @@
     .star-a {
       bottom: 18%;
       left: 12%;
-      animation: pulse-dot 3s ease-in-out infinite;
     }
 
-    @keyframes paper-float {
-      0%, 100% { transform: rotate(-5deg) translateY(0); }
-      50% { transform: rotate(-3deg) translateY(-8px); }
-    }
-
-    @keyframes float-gentle {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    /* 7. VỀ CHÚNG TÔI & NGUYÊN TẮC (ABOUT & PRINCIPLES) */
+    /* ==========================================================================
+       PHẦN 7: CÁC KHỐI NỘI DUNG (ABOUT, PRINCIPLES, TEAM, WORK, PROCESS)
+       Chức năng: Trình bày chi tiết thông tin, hỗ trợ vuốt ngang trên thiết bị nhỏ.
+       ========================================================================== */
     .about-grid {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
@@ -846,7 +801,7 @@
       margin-top: 20px;
     }
 
-    /* Thẻ nguyên tắc: Grid trên màn hình lớn & Vuốt ngang trơn tru trên máy nhỏ */
+    /* Nguyên tắc */
     .principles-wrapper {
       width: 100%;
       position: relative;
@@ -868,12 +823,6 @@
       transition: var(--transition);
       display: flex;
       flex-direction: column;
-    }
-
-    .principle-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-card);
-      border-color: var(--border-color-hover);
     }
 
     .principle-top {
@@ -914,7 +863,7 @@
       color: var(--color-muted);
     }
 
-    /* 8. ĐỘI NGŨ THIẾT KẾ (TEAM SECTION) */
+    /* Đội ngũ */
     .team-section {
       background-color: var(--bg-page-subtle);
       border-top: 1px solid var(--border-color);
@@ -945,12 +894,6 @@
       flex-direction: column;
     }
 
-    .person-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-hover);
-      border-color: var(--border-color-hover);
-    }
-
     .person-art {
       height: 170px;
       border-radius: var(--radius-md);
@@ -972,11 +915,6 @@
       color: var(--color-forest);
       position: relative;
       z-index: 2;
-      transition: transform 0.3s ease;
-    }
-
-    .person-card:hover .avatar-initial {
-      transform: scale(1.08);
     }
 
     .person-spark {
@@ -1064,12 +1002,6 @@
       flex-shrink: 0;
     }
 
-    .person-card:hover .person-arrow-btn {
-      background-color: var(--color-forest);
-      color: #ffffff;
-      transform: translate(2px, -2px);
-    }
-
     .person-bio {
       font-size: 13px;
       line-height: 1.62;
@@ -1101,7 +1033,7 @@
       color: var(--color-terracotta);
     }
 
-    /* 9. DỰ ÁN TIÊU BIỂU (WORK SECTION) */
+    /* Dự án */
     .project-grid-wrapper {
       width: 100%;
       position: relative;
@@ -1125,12 +1057,6 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-hover);
-      border-color: var(--border-color-hover);
     }
 
     .project-visual {
@@ -1170,7 +1096,6 @@
       letter-spacing: 0.06em;
     }
 
-    /* Mô phỏng trình duyệt bo tròn 14px */
     .mock-browser {
       width: 86%;
       height: 76%;
@@ -1290,7 +1215,6 @@
     .card-b { background-color: #edd1be; }
     .card-c { background-color: #bad3c2; }
 
-    /* Minh họa Nexus App */
     .product-sun {
       position: absolute;
       width: 130px;
@@ -1350,7 +1274,6 @@
       margin-top: 4px;
     }
 
-    /* Chi tiết dự án */
     .project-details {
       padding: 16px 4px 4px;
       display: flex;
@@ -1426,7 +1349,67 @@
       transform: translateX(4px);
     }
 
-    /* 10. LIÊN HỆ HỢP TÁC (CONTACT CTA BOX) */
+    /* Quy trình */
+    .process-section {
+      background-color: var(--bg-page-subtle);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .process-grid-wrapper {
+      width: 100%;
+      position: relative;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      width: 100%;
+    }
+
+    .process-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .process-step-no {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-leaf);
+      background-color: var(--color-leaf-soft);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+    }
+
+    .process-card h3 {
+      font-size: 16.5px;
+      font-weight: 700;
+      color: var(--color-ink);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .process-card p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--color-muted);
+    }
+
+    /* ==========================================================================
+       PHẦN 8: HỘP LIÊN HỆ KÊU GỌI HỢP TÁC (CONTACT CTA) & CHÂN TRANG (FOOTER)
+       ========================================================================== */
     .contact-wrap {
       padding-top: 30px;
       padding-bottom: 80px;
@@ -1535,7 +1518,6 @@
       font-weight: 600;
     }
 
-    /* 11. CHÂN TRANG (SITE FOOTER) */
     .site-footer {
       min-height: 80px;
       border-top: 1px solid var(--border-color);
@@ -1597,16 +1579,71 @@
       transition: transform 0.25s ease;
     }
 
-    .back-top-pill:hover .top-arrow {
-      transform: translateY(-2px);
+    /* ==========================================================================
+       PHẦN 9: ĐIỀU KIỆN HIỆU ỨNG (CHỈ CHẠY TRÊN PC / TABLET ĐỦ MẠNH)
+       Chức năng: Tắt toàn bộ chuyển động ngầm trên Mobile để tiết kiệm pin & GPU.
+       ========================================================================== */
+    @media (min-width: 861px) and (hover: hover) {
+      @keyframes orbit-turn { to { transform: rotate(360deg); } }
+      @keyframes paper-float {
+        0%, 100% { transform: rotate(-5deg) translateY(0); }
+        50% { transform: rotate(-3deg) translateY(-8px); }
+      }
+      @keyframes float-gentle {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+      @keyframes pulse-dot {
+        0%, 100% { transform: scale(1); box-shadow: 0 0 0 3px rgba(141, 166, 51, 0.25); }
+        50% { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(141, 166, 51, 0.08); }
+      }
+
+      .orbit-one { animation: orbit-turn 50s linear infinite; }
+      .orbit-two { animation: orbit-turn 65s linear infinite reverse; }
+      .art-sun { animation: float-gentle 7s ease-in-out infinite; }
+      .art-paper { animation: paper-float 8s ease-in-out infinite; }
+      .block-green { animation: float-gentle 7.5s ease-in-out infinite 0.5s; }
+      .block-orange { animation: float-gentle 8.5s ease-in-out infinite 1s; }
+      .status-dot, .dot-leaf, .star-a { animation: pulse-dot 2.5s infinite ease-in-out; }
+
+      .person-card:hover, .project-card:hover, .process-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-hover);
+        border-color: var(--border-color-hover);
+      }
+      .person-card:hover .avatar-initial { transform: scale(1.08); }
+      .person-card:hover .person-arrow-btn { background-color: var(--color-forest); color: #ffffff; transform: translate(2px, -2px); }
+      .principle-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-card);
+        border-color: var(--border-color-hover);
+      }
+      .button-primary:hover {
+        background-color: var(--color-forest-light);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px rgba(20, 62, 51, 0.22);
+      }
+      .button-outline:hover {
+        border-color: var(--color-forest);
+        color: var(--color-forest);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-card);
+      }
+      .button:hover .btn-arrow { transform: translateX(4px); }
+    }
+
+    /* Trên Mobile (<= 860px hoặc cảm ứng): Tắt animation ngầm */
+    @media (max-width: 860px), (hover: none) {
+      .orbit-one, .orbit-two, .art-sun, .art-paper, 
+      .block-green, .block-orange, .status-dot, .dot-leaf, .star-a {
+        animation: none !important;
+      }
     }
 
     /* ==========================================================================
-       12. TƯƠNG THÍCH MỌI MODEL MÁY (IPHONE, ANDROID, TABLET, DESKTOP)
-       Khắc phục triệt để lỗi tràn mép phải, căn chỉnh chữ và vuốt ngang gọn gàng
+       PHẦN 10: RESPONSIVE CHO TABLET & MOBILE (TƯƠNG THÍCH MỌI DÒNG MÁY)
+       Chức năng: Chuyển menu sang dạng Hamburger, chuyển Card sang vuốt ngang.
        ========================================================================== */
-
-    /* Tablet & màn hình vừa (<= 992px) */
     @media (max-width: 992px) {
       .hero {
         grid-template-columns: 1fr;
@@ -1614,86 +1651,41 @@
         padding-top: 32px;
         padding-bottom: 48px;
       }
-
-      .hero-art {
-        height: 360px;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .project-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .project-large .project-visual,
-      .project-visual {
-        height: 250px;
-      }
+      .hero-art { height: 360px; }
+      .about-grid { grid-template-columns: 1fr; gap: 24px; }
+      .project-grid { grid-template-columns: 1fr; gap: 24px; }
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+      .project-large .project-visual, .project-visual { height: 250px; }
     }
 
-    /* Mobile & Máy có màn hình ngắn (<= 768px, ví dụ: iPhone 15 Pro Max, iPhone SE, Galaxy) */
-    @media (max-width: 768px) {
+    /* Màn hình Mobile (<= 860px) */
+    @media (max-width: 860px) {
       :root {
         --header-h: 68px;
       }
 
-      .section-wrap {
-        padding-inline: 16px; /* Cách mép an toàn tuyệt đối 16px */
-      }
+      .section-wrap { padding-inline: 16px; }
+      .header-inner { padding-inline: 16px; }
 
-      .header-inner {
-        padding-inline: 16px;
-      }
-
-      /* Nút Hamburger menu thuần CSS - Cố định an toàn không bao giờ bị cắt */
-      .menu-toggle {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-        width: 38px;
-        height: 38px;
-        background-color: var(--bg-surface);
-        border: 1px solid var(--border-color);
-        border-radius: var(--radius-pill);
-        box-shadow: var(--shadow-sm);
-        cursor: pointer;
-        transition: var(--transition);
-        flex-shrink: 0;
-      }
-
-      .toggle-line {
-        display: block;
-        width: 16px;
-        height: 2px;
-        background-color: var(--color-ink);
-        border-radius: 2px;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-      }
+      /* Ẩn menu desktop, hiện menu mobile */
+      .desktop-nav { display: none !important; }
+      .mobile-nav-container { display: block !important; }
 
       .nav-menu[open] .menu-toggle {
         background-color: var(--color-forest);
       }
-
       .nav-menu[open] .toggle-line {
         background-color: #ffffff;
       }
-
       .nav-menu[open] .toggle-line:first-child {
         transform: translateY(3.5px) rotate(45deg);
       }
-
       .nav-menu[open] .toggle-line:last-child {
         transform: translateY(-3.5px) rotate(-45deg);
       }
 
-      /* Dropdown mobile nav - Luôn nằm trọn trong màn hình */
-      .nav-menu > .site-nav {
+      /* Khung menu xổ xuống trên mobile */
+      .mobile-nav-dropdown {
         display: none;
         position: absolute;
         top: calc(100% + 10px);
@@ -1709,30 +1701,18 @@
         z-index: 1000;
       }
 
-      .nav-menu[open] > .site-nav {
+      .nav-menu[open] .mobile-nav-dropdown {
         display: flex;
-        animation: menu-slide-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
       }
 
-      @keyframes menu-slide-in {
-        from {
-          opacity: 0;
-          transform: translateY(-8px) scale(0.96);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0) scale(1);
-        }
-      }
-
-      .nav-item {
+      .mobile-nav-dropdown .nav-item {
         width: 100%;
         padding: 10px 14px;
         border-radius: var(--radius-sm);
         font-size: 14px;
       }
 
-      .nav-contact {
+      .mobile-nav-dropdown .nav-contact {
         width: 100%;
         justify-content: center;
         margin-top: 4px;
@@ -1765,9 +1745,7 @@
         margin-bottom: 22px;
       }
 
-      .hero-actions .button {
-        width: 100%;
-      }
+      .hero-actions .button { width: 100%; }
 
       .hero-art {
         height: 280px;
@@ -1777,38 +1755,15 @@
       .orbit-one { width: 260px; height: 180px; }
       .orbit-two { width: 200px; height: 260px; }
 
-      .art-sun {
-        width: 60px;
-        height: 60px;
-        top: 20px;
-        right: 20px;
-      }
+      .art-sun { width: 60px; height: 60px; top: 20px; right: 20px; }
+      .art-paper { width: 180px; height: 220px; padding: 12px; }
+      .paper-shape { height: 95px; }
 
-      .art-paper {
-        width: 180px;
-        height: 220px;
-        padding: 12px;
-      }
-
-      .paper-shape {
-        height: 95px;
-      }
-
-      .block-green {
-        left: 4%;
-        top: 15%;
-        padding: 6px 10px;
-      }
-
+      .block-green { left: 4%; top: 15%; padding: 6px 10px; }
       .block-green b { font-size: 15px; }
       .block-green span { font-size: 9px; }
 
-      .block-orange {
-        right: 4%;
-        bottom: 12%;
-        padding: 6px 10px;
-      }
-
+      .block-orange { right: 4%; bottom: 12%; padding: 6px 10px; }
       .block-orange b { font-size: 15px; }
       .block-orange span { font-size: 9px; }
 
@@ -1817,10 +1772,7 @@
         padding-bottom: 60px;
       }
 
-      .section-heading {
-        margin-bottom: 24px;
-      }
-
+      .section-heading { margin-bottom: 24px; }
       .section-title-row {
         flex-direction: column;
         align-items: flex-start;
@@ -1828,15 +1780,13 @@
         margin-bottom: 24px;
       }
 
-      /* Hiện huy hiệu nhắc vuốt ngang */
-      .swipe-hint {
-        display: inline-flex;
-      }
+      .swipe-hint { display: inline-flex; }
 
-      /* QUAN TRỌNG: VUỐT NGANG MƯỢT MÀ KHÔNG BỊ TRÀN HAY DÀI THƯỜN THƯỢT */
+      /* Vuốt ngang các card trên mobile */
       .principles,
       .team-grid,
-      .project-grid {
+      .project-grid,
+      .process-grid {
         display: flex !important;
         overflow-x: auto !important;
         scroll-snap-type: x mandatory;
@@ -1850,106 +1800,37 @@
 
       .principles::-webkit-scrollbar,
       .team-grid::-webkit-scrollbar,
-      .project-grid::-webkit-scrollbar {
+      .project-grid::-webkit-scrollbar,
+      .process-grid::-webkit-scrollbar {
         height: 4px;
       }
 
       .principles::-webkit-scrollbar-thumb,
       .team-grid::-webkit-scrollbar-thumb,
-      .project-grid::-webkit-scrollbar-thumb {
+      .project-grid::-webkit-scrollbar-thumb,
+      .process-grid::-webkit-scrollbar-thumb {
         background: var(--color-leaf);
         border-radius: var(--radius-pill);
       }
 
-      .principles::-webkit-scrollbar-track,
-      .team-grid::-webkit-scrollbar-track,
-      .project-grid::-webkit-scrollbar-track {
-        background: rgba(20, 62, 51, 0.08);
-        border-radius: var(--radius-pill);
-      }
+      .principle-card { flex: 0 0 84%; max-width: 310px; scroll-snap-align: start; padding: 20px 18px; }
+      .person-card { flex: 0 0 78%; max-width: 280px; scroll-snap-align: start; padding: 12px 12px 18px; }
+      .person-art { height: 150px; }
+      .avatar-initial { font-size: 44px; }
+      .project-card { flex: 0 0 88%; max-width: 320px; scroll-snap-align: start; padding: 14px; }
+      .project-large .project-visual, .project-visual { height: 190px; }
+      .process-card { flex: 0 0 78%; max-width: 280px; scroll-snap-align: start; padding: 20px 16px; }
 
-      /* Chiều rộng thẻ vừa vặn màn hình điện thoại khi trượt */
-      .principle-card {
-        flex: 0 0 84%;
-        max-width: 310px;
-        scroll-snap-align: start;
-        padding: 20px 18px;
-      }
+      .contact-box { padding: 40px 18px; border-radius: var(--radius-lg); }
+      .contact-actions { flex-direction: column; align-items: stretch; width: 100%; gap: 10px; }
+      .contact-actions .button { width: 100%; }
+      .contact-info-grid { flex-direction: column; align-items: stretch; width: 100%; }
+      .info-pill { width: 100%; justify-content: center; }
 
-      .person-card {
-        flex: 0 0 78%;
-        max-width: 280px;
-        scroll-snap-align: start;
-        padding: 12px 12px 18px;
-      }
-
-      .person-art {
-        height: 150px;
-      }
-
-      .avatar-initial {
-        font-size: 44px;
-      }
-
-      .project-card {
-        flex: 0 0 88%;
-        max-width: 320px;
-        scroll-snap-align: start;
-        padding: 14px;
-      }
-
-      .project-large .project-visual,
-      .project-visual {
-        height: 190px;
-      }
-
-      .contact-box {
-        padding: 40px 18px;
-        border-radius: var(--radius-lg);
-      }
-
-      .contact-actions {
-        flex-direction: column;
-        align-items: stretch;
-        width: 100%;
-        gap: 10px;
-      }
-
-      .contact-actions .button {
-        width: 100%;
-      }
-
-      .contact-info-grid {
-        flex-direction: column;
-        align-items: stretch;
-        width: 100%;
-      }
-
-      .info-pill {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .site-footer {
-        flex-direction: column;
-        gap: 14px;
-        text-align: center;
-      }
+      .site-footer { flex-direction: column; gap: 14px; text-align: center; }
     }
 
-    /* Máy cực nhỏ (<= 380px) */
-    @media (max-width: 380px) {
-      .hero-title {
-        font-size: 26px;
-      }
-      .principle-card,
-      .person-card,
-      .project-card {
-        flex: 0 0 90%;
-      }
-    }
-
-    /* 13. TRỢ NĂNG: GIẢM CHUYỂN ĐỘNG NẾU NGƯỜI DÙNG BẬT */
+    /* Trợ năng */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -1961,12 +1842,19 @@
   </style>
 </head>
 <body>
-  <!-- Phím tắt trợ năng -->
+  <!-- Phím tắt trợ năng dành cho người dùng bàn phím -->
   <a class="skip-link" href="#main-content">Bỏ qua đến nội dung chính</a>
 
-  <!-- Header cố định: Ấn vào từng mục sẽ cuộn êm ái tới đúng phần đó -->
+  <!-- ==========================================================================
+       PHẦN 1: HEADER & THANH ĐIỀU HƯỚNG CỐ ĐỊNH (STICKY HEADER)
+       Chức năng: 
+       - Cố định trên đỉnh trình duyệt, có hiệu ứng kính mờ (backdrop-filter).
+       - Desktop: Hiển thị dàn ngang đầy đủ 7 mục để người dùng bấm cuộn tới mục đó.
+       - Mobile: Tự động chuyển thành nút Hamburger menu thuần CSS mở dropdown.
+       ========================================================================== -->
   <header class="site-header">
     <div class="header-inner">
+      <!-- Logo thương hiệu -->
       <a href="#hero" class="brand" aria-label="Về trang chủ Nhóm Thiết Kế Web">
         <div class="brand-mark">
           <span></span>
@@ -1979,30 +1867,52 @@
         </div>
       </a>
 
-      <!-- Menu điều hướng liên kết từng mục -->
-      <details class="nav-menu">
-        <summary class="menu-toggle" aria-label="Mở danh sách các mục">
-          <span class="toggle-line"></span>
-          <span class="toggle-line"></span>
-        </summary>
-        <nav class="site-nav" aria-label="Menu chính">
-          <a href="#hero" class="nav-item">Trang chủ</a>
-          <a href="#about" class="nav-item">Về chúng tôi</a>
-          <a href="#principles" class="nav-item">Nguyên tắc</a>
-          <a href="#team" class="nav-item">Đội ngũ</a>
-          <a href="#work" class="nav-item">Dự án</a>
-          <a href="#contact" class="nav-contact">
-            <span>Liên hệ ngay</span>
-            <span class="nav-arrow">→</span>
-          </a>
-        </nav>
-      </details>
+      <!-- 1.1: Menu điều hướng 7 mục hiển thị trực tiếp trên Desktop / Máy tính -->
+      <nav class="desktop-nav" aria-label="Menu chính trên máy tính">
+        <a href="#hero" class="nav-item">Trang chủ</a>
+        <a href="#about" class="nav-item">Về chúng tôi</a>
+        <a href="#principles" class="nav-item">Nguyên tắc</a>
+        <a href="#team" class="nav-item">Đội ngũ</a>
+        <a href="#work" class="nav-item">Dự án</a>
+        <a href="#process" class="nav-item">Quy trình</a>
+        <a href="#contact" class="nav-contact">
+          <span>Liên hệ ngay</span>
+          <span class="nav-arrow">→</span>
+        </a>
+      </nav>
+
+      <!-- 1.2: Menu điều hướng dạng nút bấm xổ xuống trên Điện thoại Mobile -->
+      <div class="mobile-nav-container">
+        <details class="nav-menu">
+          <summary class="menu-toggle" aria-label="Mở danh sách các mục trên di động">
+            <span class="toggle-line"></span>
+            <span class="toggle-line"></span>
+          </summary>
+          <nav class="mobile-nav-dropdown" aria-label="Menu chính trên di động">
+            <a href="#hero" class="nav-item">Trang chủ</a>
+            <a href="#about" class="nav-item">Về chúng tôi</a>
+            <a href="#principles" class="nav-item">Nguyên tắc</a>
+            <a href="#team" class="nav-item">Đội ngũ</a>
+            <a href="#work" class="nav-item">Dự án</a>
+            <a href="#process" class="nav-item">Quy trình</a>
+            <a href="#contact" class="nav-contact">
+              <span>Liên hệ ngay</span>
+              <span class="nav-arrow">→</span>
+            </a>
+          </nav>
+        </details>
+      </div>
     </div>
   </header>
 
   <main id="main-content">
-    <!-- 1. Hero Section (#hero) -->
+    <!-- ==========================================================================
+         PHẦN 2: HERO SECTION (KHU VỰC GIỚI THIỆU CHÍNH)
+         Chức năng: Tiêu đề H1 ấn tượng, thông điệp studio, nút kêu gọi hành động,
+         và khung tranh minh họa kỹ thuật số bo tròn nghệ thuật.
+         ========================================================================== -->
     <section class="hero section-wrap" id="hero">
+      <!-- Cột trái: Văn bản & Nút bấm -->
       <div class="hero-copy">
         <div class="eyebrow-pill">
           <span class="status-dot"></span>
@@ -2041,7 +1951,7 @@
         </div>
       </div>
 
-      <!-- Hero Visual Art (Được bao bọc an toàn trong khung hình tròn trịa, không tràn lề) -->
+      <!-- Cột phải: Khung tranh nghệ thuật số (Bo tròn, khóa tràn lề an toàn) -->
       <div class="hero-art-container">
         <div class="hero-art" aria-hidden="true">
           <div class="art-orbit orbit-one"></div>
@@ -2085,7 +1995,10 @@
       </div>
     </section>
 
-    <!-- 2. Section: Về chúng tôi (#about) -->
+    <!-- ==========================================================================
+         PHẦN 3: VỀ CHÚNG TÔI (ABOUT SECTION)
+         Chức năng: Trình bày câu chuyện, tư duy thiết kế và triết lý làm việc.
+         ========================================================================== -->
     <section class="section-block" id="about">
       <div class="section-wrap">
         <div class="section-heading">
@@ -2118,13 +2031,41 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- 3. Section: Nguyên tắc thiết kế (#principles) - Vuốt ngang êm ái trên máy nhỏ -->
-        <div id="principles" class="principles-wrapper" style="padding-top: 10px;">
+    <!-- ==========================================================================
+         PHẦN 4: NGUYÊN TẮC THIẾT KẾ (PRINCIPLES)
+         Chức năng: 3 giá trị cốt lõi (Tối giản, Hiệu năng, Thân thiện), 
+         trên mobile hỗ trợ vuốt lướt ngang (Horizontal Carousel).
+         ========================================================================== -->
+    <section class="section-block" id="principles">
+      <div class="section-wrap">
+        <div class="section-heading">
+          <div class="eyebrow-pill">
+            <span class="status-dot"></span>
+            <span>NGUYÊN TẮC CỐT LÕI</span>
+          </div>
+          <span class="section-index">[ 02 ]</span>
+        </div>
+
+        <div class="section-title-row">
+          <div>
+            <h2 class="section-title">
+              3 Giá trị tạo nên <em>khác biệt</em>.
+            </h2>
+          </div>
+          <p class="section-subtitle">
+            Những tôn chỉ nghề nghiệp dẫn lối cho từng quyết định thiết kế và lập trình của chúng tôi.
+          </p>
+        </div>
+
+        <div class="principles-wrapper">
           <div class="swipe-hint">
             <span>⟵ Vuốt ngang để xem các nguyên tắc ⟶</span>
           </div>
           <div class="principles">
+            <!-- Thẻ 1: Tối giản -->
             <article class="principle-card">
               <div class="principle-top">
                 <span class="principle-no">01</span>
@@ -2136,6 +2077,7 @@
               </p>
             </article>
 
+            <!-- Thẻ 2: Hiệu năng -->
             <article class="principle-card">
               <div class="principle-top">
                 <span class="principle-no">02</span>
@@ -2147,6 +2089,7 @@
               </p>
             </article>
 
+            <!-- Thẻ 3: Thân thiện -->
             <article class="principle-card">
               <div class="principle-top">
                 <span class="principle-no">03</span>
@@ -2162,7 +2105,11 @@
       </div>
     </section>
 
-    <!-- 4. Section: Đội ngũ (#team) - Vuốt ngang êm ái trên máy nhỏ -->
+    <!-- ==========================================================================
+         PHẦN 5: ĐỘI NGŨ SÁNG TẠO (TEAM SECTION)
+         Chức năng: Giới thiệu 3 nhân sự chủ chốt (UI/UX, Frontend, Giám đốc sáng tạo)
+         với các avatar đồ họa và thẻ bo tròn hiện đại.
+         ========================================================================== -->
     <section class="section-block team-section" id="team">
       <div class="section-wrap">
         <div class="section-heading">
@@ -2170,7 +2117,7 @@
             <span class="status-dot"></span>
             <span>ĐỘI NGŨ THIẾT KẾ</span>
           </div>
-          <span class="section-index">[ 02 ]</span>
+          <span class="section-index">[ 03 ]</span>
         </div>
 
         <div class="section-title-row">
@@ -2189,9 +2136,8 @@
             <span>⟵ Vuốt ngang để xem các thành viên ⟶</span>
           </div>
 
-          <!-- Dãy thẻ thành viên có thể vuốt ngang (horizontal swipe) -->
           <div class="team-grid">
-            <!-- Thành viên 1 -->
+            <!-- Thành viên 1: UI/UX Designer -->
             <article class="person-card">
               <div class="person-art person-art-one">
                 <span class="avatar-initial">T</span>
@@ -2213,7 +2159,7 @@
               </div>
             </article>
 
-            <!-- Thành viên 2 -->
+            <!-- Thành viên 2: Frontend Developer -->
             <article class="person-card">
               <div class="person-art person-art-two">
                 <span class="avatar-initial">K</span>
@@ -2234,7 +2180,7 @@
               </div>
             </article>
 
-            <!-- Thành viên 3 -->
+            <!-- Thành viên 3: Creative Director -->
             <article class="person-card">
               <div class="person-art person-art-three">
                 <span class="avatar-initial">H</span>
@@ -2266,7 +2212,11 @@
       </div>
     </section>
 
-    <!-- 5. Section: Dự án tiêu biểu (#work) - Vuốt ngang êm ái trên máy nhỏ -->
+    <!-- ==========================================================================
+         PHẦN 6: DỰ ÁN TIÊU BIỂU (WORK / PORTFOLIO)
+         Chức năng: Trưng bày case study thực tế với khung trình duyệt mô phỏng
+         và thẻ ứng dụng số liệu trực quan.
+         ========================================================================== -->
     <section class="section-block" id="work">
       <div class="section-wrap">
         <div class="section-heading">
@@ -2274,7 +2224,7 @@
             <span class="status-dot"></span>
             <span>DỰ ÁN TIÊU BIỂU</span>
           </div>
-          <span class="section-index">[ 03 ]</span>
+          <span class="section-index">[ 04 ]</span>
         </div>
 
         <div class="section-title-row">
@@ -2293,9 +2243,8 @@
             <span>⟵ Vuốt ngang để khám phá các dự án ⟶</span>
           </div>
 
-          <!-- Dãy thẻ dự án có thể vuốt ngang (horizontal swipe) -->
           <div class="project-grid">
-            <!-- Dự án 1 -->
+            <!-- Dự án 1: Trình duyệt mô phỏng -->
             <article class="project-card project-large">
               <div class="project-visual visual-portfolio">
                 <div class="visual-tag-pill">CASE STUDY / 2025</div>
@@ -2348,7 +2297,7 @@
               </div>
             </article>
 
-            <!-- Dự án 2 -->
+            <!-- Dự án 2: Ứng dụng Fintech -->
             <article class="project-card">
               <div class="project-visual visual-product">
                 <div class="visual-tag-pill">WEB APP / 2024</div>
@@ -2385,7 +2334,73 @@
       </div>
     </section>
 
-    <!-- 6. Section: Liên hệ hợp tác (#contact) -->
+    <!-- ==========================================================================
+         PHẦN 7: QUY TRÌNH HỢP TÁC (PROCESS WORKFLOW)
+         Chức năng: Trình bày quy trình 4 bước làm việc chuyên nghiệp, minh bạch.
+         ========================================================================== -->
+    <section class="section-block process-section" id="process">
+      <div class="section-wrap">
+        <div class="section-heading">
+          <div class="eyebrow-pill">
+            <span class="status-dot"></span>
+            <span>QUY TRÌNH HỢP TÁC</span>
+          </div>
+          <span class="section-index">[ 05 ]</span>
+        </div>
+
+        <div class="section-title-row">
+          <div>
+            <h2 class="section-title">
+              4 Bước triển khai <em>minh bạch</em> &amp; hiệu quả.
+            </h2>
+          </div>
+          <p class="section-subtitle">
+            Quy trình làm việc rõ ràng giúp tiết kiệm thời gian, tối ưu chi phí và đảm bảo sản phẩm bàn giao luôn đạt độ hoàn thiện cao nhất.
+          </p>
+        </div>
+
+        <div class="process-grid-wrapper">
+          <div class="swipe-hint">
+            <span>⟵ Vuốt ngang để xem 4 bước quy trình ⟶</span>
+          </div>
+          <div class="process-grid">
+            <!-- Bước 1 -->
+            <div class="process-card">
+              <span class="process-step-no">01</span>
+              <h3>Khảo sát &amp; Định hướng</h3>
+              <p>Lắng nghe câu chuyện thương hiệu, phân tích đối tượng khách hàng mục tiêu và thiết lập bài toán chuyển đổi cụ thể.</p>
+            </div>
+
+            <!-- Bước 2 -->
+            <div class="process-card">
+              <span class="process-step-no">02</span>
+              <h3>Thiết kế UI/UX độc bản</h3>
+              <p>Phác thảo cấu trúc Wireframe, xây dựng hệ thống màu sắc, kiểu chữ và tạo mẫu giao diện tương tác chân thực.</p>
+            </div>
+
+            <!-- Bước 3 -->
+            <div class="process-card">
+              <span class="process-step-no">03</span>
+              <h3>Lập trình tối ưu chuẩn</h3>
+              <p>Chuyển hóa bản vẽ thành mã nguồn HTML/CSS sạch sẽ, tải siêu tốc và tương thích hoàn hảo trên mọi kích cỡ màn hình.</p>
+            </div>
+
+            <!-- Bước 4 -->
+            <div class="process-card">
+              <span class="process-step-no">04</span>
+              <h3>Kiểm thử &amp; Bàn giao</h3>
+              <p>Rà soát kỹ lưỡng trên các thiết bị thực tế, nghiệm thu tỉ mỉ và đồng hành hỗ trợ bảo trì dài lâu.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PHẦN 8: LIÊN HỆ HỢP TÁC (CONTACT CTA BOX)
+         Chức năng: Hộp màu xanh lục bảo bo góc 32px lớn, nổi bật lời kêu gọi hành động
+         và các kênh liên hệ trực tiếp (Email, Hotline, Văn phòng).
+         ========================================================================== -->
     <section class="section-wrap contact-wrap" id="contact">
       <div class="contact-box">
         <div class="contact-pattern" aria-hidden="true">✦</div>
@@ -2435,7 +2450,10 @@
     </section>
   </main>
 
-  <!-- Chân trang (Site Footer) -->
+  <!-- ==========================================================================
+       PHẦN 9: CHÂN TRANG (SITE FOOTER)
+       Chức năng: Bản quyền tác giả, thương hiệu và nút cuộn về đầu trang.
+       ========================================================================== -->
   <footer class="site-footer section-wrap">
     <div class="footer-brand">
       <div class="brand-mark">
