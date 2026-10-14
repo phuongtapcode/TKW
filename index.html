@@ -2,1904 +2,85 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="description" content="Nhóm thiết kế và phát triển website chuyên nghiệp, sáng tạo, tương thích hoàn hảo mọi thiết bị.">
-  <title>Nhóm Thiết Kế Web • Creative Studio & Portfolio</title>
-  
-  <!-- Nhúng phông chữ tiếng Việt chuẩn Google Fonts: Be Vietnam Pro, Lora & DM Mono -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio Nhóm Thiết Kế Web STUDIO.LAB - Thanh Phương, Ngọc Hiếu, Tiến Đạt. Giao diện chuẩn Semantic HTML5, CSS Grid/Flexbox, Responsive và tối ưu PageSpeed.">
+  <meta name="theme-color" content="#0d1714">
+  <title>STUDIO.LAB • Portfolio Nhóm Thiết Kế Web</title>
+
+  <!-- Favicon SVG nội tuyến: Hiển thị sắc nét trên tab trình duyệt, không lỗi 404 -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23143e33'/%3E%3Crect x='15' y='28' width='8' height='22' rx='4' transform='skewX(-14)' fill='%23ffffff'/%3E%3Crect x='28' y='14' width='8' height='36' rx='4' transform='skewX(-14)' fill='%23b5d34a'/%3E%3Crect x='41' y='21' width='8' height='29' rx='4' transform='skewX(-14)' fill='%23f08a58'/%3E%3C/svg%3E">
+
+  <!-- Google Fonts chuẩn tiếng Việt -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Mono:wght@400;500&family=Lora:ital,wght@0,500;1,400;1,500;1,600&display=swap" rel="stylesheet">
-  
-  <!-- Tải style.css; CSS tối ưu trong HTML tiếp tục ưu tiên để giữ giao diện hiện tại -->
-  <link rel="stylesheet" href="./style.css?v=20261015-2">
-  <style>
-    /* ==========================================================================
-       PHẦN 1: THIẾT LẬP BIẾN MÀU, BÁN KÍNH BO TRÒN & PHÔNG CHỮ (DESIGN TOKENS)
-       Chức năng: Quản lý tập trung toàn bộ màu sắc, font, bo góc và bóng đổ.
-       ========================================================================== */
-    :root {
-      color-scheme: light;
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=Lora:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
 
-      /* Màu nền trang & bề mặt thẻ */
-      --bg-page: #f8f6f1;          /* Nền kem ấm áp, sang trọng */
-      --bg-page-subtle: #f0ece3;   /* Nền kem đậm hơn cho các section xen kẽ */
-      --bg-surface: #ffffff;       /* Nền trắng tinh khiết cho các thẻ card */
-      --bg-surface-soft: #f4f1e8;  /* Nền phụ cho nhãn và icon con */
-
-      /* Bảng màu thương hiệu chính */
-      --color-forest: #143e33;       /* Xanh ngọc lục bảo đậm (Primary) */
-      --color-forest-dark: #0c2720;  /* Xanh rêu đậm khi hover */
-      --color-forest-light: #1c5244; /* Xanh ngọc sáng */
-      --color-leaf: #8da633;         /* Xanh lá mạ tươi mới (Accent) */
-      --color-leaf-hover: #788f28;   /* Xanh lá đậm khi rê chuột */
-      --color-leaf-soft: #edf3d5;    /* Nền xanh nhạt cho huy hiệu */
-
-      /* Màu điểm nhấn phụ */
-      --color-terracotta: #e58252;      /* Cam đất hoàng hôn ấm cúng */
-      --color-terracotta-soft: #fcf0e9; /* Nền cam nhạt */
-
-      /* Màu chữ & tương phản chuẩn WCAG */
-      --color-ink: #162822;    /* Chữ chính: than chì đậm, cực rõ nét */
-      --color-muted: #56685f;  /* Chữ phụ: xám rêu êm mắt */
-      --color-subtle: #7f9086; /* Chữ nhãn nhỏ, số liệu */
-
-      /* Đường viền tinh tế */
-      --border-color: rgba(20, 62, 51, 0.1);
-      --border-color-hover: rgba(20, 62, 51, 0.25);
-
-      /* Hệ thống phông chữ */
-      --font-sans: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --font-serif: "Lora", Georgia, serif;
-      --font-mono: "DM Mono", monospace;
-
-      /* Hệ thống bo tròn mềm mại (Rounded Aesthetic) */
-      --radius-xs: 8px;
-      --radius-sm: 14px;
-      --radius-md: 20px;
-      --radius-lg: 24px;   /* Bo tròn thẻ card chính */
-      --radius-xl: 32px;   /* Bo tròn khối CTA lớn */
-      --radius-pill: 999px;/* Bo tròn con nhộng cho nút bấm & badge */
-
-      /* Hiệu ứng bóng đổ tự nhiên */
-      --shadow-sm: 0 4px 14px rgba(20, 62, 51, 0.04);
-      --shadow-card: 0 10px 28px -4px rgba(20, 62, 51, 0.06), 0 3px 10px -2px rgba(20, 62, 51, 0.03);
-      --shadow-hover: 0 20px 40px -6px rgba(20, 62, 51, 0.12), 0 6px 14px -3px rgba(20, 62, 51, 0.04);
-
-      /* Chiều cao Header cố định */
-      --header-h: 74px;
-      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    /* ==========================================================================
-       PHẦN 2: THIẾT LẬP CƠ BẢN, CUỘN TRANG ÊM ÁI & CHỐNG TRÀN TOÀN DIỆN
-       Chức năng: Khóa tràn ngang trên mobile, cuộn mượt mà không bị Header che chữ.
-       ========================================================================== */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden; /* Chống tràn lề ngang tuyệt đối */
-      position: relative;
-    }
-
-    html {
-      scroll-behavior: smooth; /* Cuộn trang êm ái khi bấm vào các mục header */
-      scroll-padding-top: calc(var(--header-h) + 16px); /* Đệm đỉnh để không bị che */
-      -webkit-text-size-adjust: 100%;
-    }
-
-    body {
-      background-color: var(--bg-page);
-      color: var(--color-ink);
-      font-family: var(--font-sans);
-      font-size: 15px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      word-break: break-word;
-      overflow-wrap: break-word;
-    }
-
-    /* Đảm bảo khi nhảy tới mục nào qua ID thì dừng lại chuẩn xác */
-    section[id], div[id] {
-      scroll-margin-top: calc(var(--header-h) + 16px);
-    }
-
-    img, svg {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: var(--transition);
-    }
-
-    button {
-      font-family: inherit;
-      border: none;
-      background: none;
-      cursor: pointer;
-    }
-
-    /* Trợ năng: Phím tắt bỏ qua tới nội dung chính cho người khiếm thị */
-    .skip-link {
-      position: absolute;
-      top: -80px;
-      left: 16px;
-      z-index: 2000;
-      padding: 10px 18px;
-      background: var(--color-forest);
-      color: #ffffff;
-      font-weight: 600;
-      border-radius: var(--radius-pill);
-      box-shadow: var(--shadow-card);
-      transition: top 0.25s ease;
-    }
-
-    .skip-link:focus {
-      top: 16px;
-    }
-
-    :focus-visible {
-      outline: 2px solid var(--color-leaf);
-      outline-offset: 3px;
-    }
-
-    /* ==========================================================================
-       PHẦN 3: BỐ CỤC CHUNG (CONTAINER & SECTION)
-       Chức năng: Căn giữa nội dung, tạo khoảng cách lề an toàn hai bên mép.
-       ========================================================================== */
-    .section-wrap {
-      width: 100%;
-      max-width: 1160px;
-      margin-inline: auto;
-      padding-inline: 24px;
-    }
-
-    .section-block {
-      padding-top: 80px;
-      padding-bottom: 80px;
-      border-top: 1px solid var(--border-color);
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .section-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 30px;
-      width: 100%;
-    }
-
-    .section-index {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--color-subtle);
-      letter-spacing: 0.08em;
-      flex-shrink: 0;
-    }
-
-    .section-title {
-      font-size: clamp(26px, 3.5vw, 42px);
-      line-height: 1.22;
-      font-weight: 700;
-      letter-spacing: -0.035em;
-      color: var(--color-ink);
-      text-wrap: balance;
-    }
-
-    .section-title em {
-      font-family: var(--font-serif);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--color-forest);
-      letter-spacing: -0.02em;
-    }
-
-    .section-title-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 28px;
-      margin-bottom: 34px;
-      width: 100%;
-    }
-
-    .section-subtitle {
-      max-width: 440px;
-      font-size: 14.5px;
-      line-height: 1.68;
-      color: var(--color-muted);
-    }
-
-    /* Chỉ dẫn vuốt ngang trên điện thoại */
-    .swipe-hint {
-      display: none;
-      align-items: center;
-      gap: 6px;
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--color-leaf);
-      background-color: var(--color-leaf-soft);
-      padding: 5px 12px;
-      border-radius: var(--radius-pill);
-      width: fit-content;
-      margin-bottom: 14px;
-    }
-
-    /* ==========================================================================
-       PHẦN 4: PHẦN TỬ GIAO DIỆN (NÚT BẤM, HUY HIỆU, CHẤM TRẠNG THÁI)
-       Chức năng: Các nút bấm bo tròn dáng viên thuốc, tương tác khi rê chuột.
-       ========================================================================== */
-    .eyebrow-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-pill);
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: var(--color-forest);
-      box-shadow: var(--shadow-sm);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .eyebrow-light {
-      background-color: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.2);
-      color: #e4eed2;
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: var(--color-leaf);
-      box-shadow: 0 0 0 3px rgba(141, 166, 51, 0.25);
-      flex-shrink: 0;
-    }
-
-    .dot-leaf {
-      background-color: #b9d856;
-      box-shadow: 0 0 0 3px rgba(185, 216, 86, 0.3);
-    }
-
-    /* Nút bấm bo tròn con nhộng */
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 48px;
-      padding: 0 24px;
-      border-radius: var(--radius-pill);
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      transition: var(--transition);
-      cursor: pointer;
-      text-decoration: none;
-      white-space: nowrap;
-    }
-
-    .button-primary {
-      background-color: var(--color-forest);
-      color: #ffffff;
-      box-shadow: 0 8px 18px rgba(20, 62, 51, 0.16);
-    }
-
-    .button-outline {
-      background-color: var(--bg-surface);
-      color: var(--color-ink);
-      border: 1px solid var(--border-color);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .button-light {
-      background-color: #ffffff;
-      color: var(--color-forest);
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
-    }
-
-    .button-ghost {
-      background-color: rgba(255, 255, 255, 0.1);
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-    }
-
-    .btn-arrow {
-      font-size: 16px;
-      line-height: 1;
-      transition: transform 0.25s ease;
-    }
-
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--color-forest);
-      border-bottom: 2px solid var(--border-color);
-      padding-bottom: 4px;
-      transition: var(--transition);
-    }
-
-    .text-link:hover {
-      color: var(--color-leaf);
-      border-bottom-color: var(--color-leaf);
-    }
-
-    .text-link:hover .link-arrow {
-      transform: translateX(4px);
-    }
-
-    .link-arrow {
-      transition: transform 0.25s ease;
-    }
-
-    /* ==========================================================================
-       PHẦN 5: HEADER & THANH ĐIỀU HƯỚNG (ĐẦY ĐỦ 7 MỤC TRÊN DESKTOP & MOBILE)
-       Chức năng: Cố định trên cùng (sticky), hiển thị rõ ràng toàn bộ 7 mục.
-       ========================================================================== */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      width: 100%;
-      height: var(--header-h);
-      background-color: rgba(248, 246, 241, 0.95);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-    }
-
-    .header-inner {
-      width: 100%;
-      max-width: 1160px;
-      margin-inline: auto;
-      padding-inline: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    /* Logo thương hiệu */
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      flex-shrink: 0;
-    }
-
-    .brand-mark {
-      width: 26px;
-      height: 24px;
-      display: flex;
-      align-items: flex-end;
-      gap: 3px;
-      transform: skew(-14deg);
-    }
-
-    .brand-mark span {
-      display: block;
-      width: 5.5px;
-      border-radius: var(--radius-pill);
-      background-color: var(--color-forest);
-    }
-
-    .brand-mark span:nth-child(1) { height: 13px; }
-    .brand-mark span:nth-child(2) { height: 22px; background-color: var(--color-leaf); }
-    .brand-mark span:nth-child(3) { height: 17px; }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-title {
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      color: var(--color-ink);
-      line-height: 1.2;
-    }
-
-    .brand-dot {
-      color: var(--color-leaf);
-    }
-
-    .brand-sub {
-      font-size: 8px;
-      font-weight: 600;
-      color: var(--color-subtle);
-      letter-spacing: 0.1em;
-    }
-
-    /* MENU TRÊN DESKTOP: Hiển thị dàn ngang rõ ràng 7 mục */
-    .desktop-nav {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .nav-item {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--color-muted);
-      padding: 6px 10px;
-      border-radius: var(--radius-pill);
-      transition: var(--transition);
-      white-space: nowrap;
-    }
-
-    .nav-item:hover {
-      color: var(--color-forest);
-      background-color: rgba(20, 62, 51, 0.06);
-    }
-
-    .nav-contact {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 16px;
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-pill);
-      font-size: 12.5px;
-      font-weight: 700;
-      color: var(--color-forest);
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-      margin-left: 4px;
-      white-space: nowrap;
-    }
-
-    .nav-contact:hover {
-      background-color: var(--color-forest);
-      color: #ffffff;
-      border-color: var(--color-forest);
-    }
-
-    /* MENU TRÊN MOBILE: Mặc định ẩn trên màn hình lớn */
-    .mobile-nav-container {
-      display: none;
-      position: relative;
-    }
-
-    .menu-toggle {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 5px;
-      width: 38px;
-      height: 38px;
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-pill);
-      box-shadow: var(--shadow-sm);
-      cursor: pointer;
-      transition: var(--transition);
-      list-style: none;
-    }
-
-    .menu-toggle::-webkit-details-marker {
-      display: none;
-    }
-
-    .toggle-line {
-      display: block;
-      width: 16px;
-      height: 2px;
-      background-color: var(--color-ink);
-      border-radius: 2px;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    /* ==========================================================================
-       PHẦN 6: HERO SECTION (TRANG CHỦ) & MINH HỌA NGHỆ THUẬT SỐ
-       Chức năng: Tiêu đề lớn, giới thiệu, nút hành động và khung tranh minh họa.
-       ========================================================================== */
-    .hero {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center;
-      gap: 36px;
-      padding-top: 48px;
-      padding-bottom: 64px;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .hero-copy {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      z-index: 2;
-      width: 100%;
-    }
-
-    .hero-title {
-      font-size: clamp(32px, 4.2vw, 56px);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.04em;
-      color: var(--color-ink);
-      margin-top: 18px;
-      margin-bottom: 16px;
-      text-wrap: balance;
-    }
-
-    .hero-title em {
-      font-family: var(--font-serif);
-      font-weight: 400;
-      font-style: italic;
-      color: var(--color-forest);
-    }
-
-    .hero-intro {
-      max-width: 480px;
-      font-size: 15px;
-      line-height: 1.75;
-      color: var(--color-muted);
-      margin-bottom: 26px;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-
-    .hero-feature-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .feature-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 12px;
-      background-color: rgba(20, 62, 51, 0.04);
-      border-radius: var(--radius-pill);
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--color-muted);
-      white-space: nowrap;
-    }
-
-    .tag-icon {
-      color: var(--color-leaf);
-      font-size: 11px;
-    }
-
-    /* Khung tranh minh họa Hero (Khóa chặt không cho tràn viền) */
-    .hero-art-container {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-art {
-      width: 100%;
-      max-width: 440px;
-      height: 400px;
-      position: relative;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      border-radius: var(--radius-xl);
-      background: radial-gradient(circle at 60% 40%, rgba(141, 166, 51, 0.12) 0%, rgba(229, 130, 82, 0.06) 60%, transparent 80%);
-    }
-
-    .art-orbit {
-      position: absolute;
-      border: 1px dashed rgba(20, 62, 51, 0.16);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .orbit-one {
-      width: 360px;
-      height: 250px;
-      transform: rotate(-25deg);
-    }
-
-    .orbit-two {
-      width: 290px;
-      height: 360px;
-      transform: rotate(35deg);
-    }
-
-    .art-sun {
-      position: absolute;
-      top: 35px;
-      right: 35px;
-      width: 85px;
-      height: 85px;
-      background: linear-gradient(135deg, #a7c442 0%, #8ba633 100%);
-      border-radius: 50%;
-      box-shadow: 0 12px 28px rgba(139, 166, 51, 0.3);
-    }
-
-    .art-paper {
-      position: relative;
-      z-index: 2;
-      width: 210px;
-      height: 260px;
-      background: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.85);
-      border-radius: var(--radius-md);
-      padding: 16px;
-      box-shadow: 0 18px 40px rgba(20, 62, 51, 0.1);
-      transform: rotate(-5deg);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .paper-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .paper-index {
-      font-family: var(--font-mono);
-      font-size: 9.5px;
-      font-weight: 600;
-      color: var(--color-subtle);
-    }
-
-    .paper-badge {
-      font-size: 8.5px;
-      font-weight: 700;
-      padding: 2px 7px;
-      background: var(--color-leaf-soft);
-      color: var(--color-forest);
-      border-radius: var(--radius-pill);
-    }
-
-    .paper-shape {
-      height: 115px;
-      background: linear-gradient(145deg, #cbe07d 0%, #ebb490 50%, #205e4d 100%);
-      border-radius: var(--radius-sm);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .shape-inner {
-      position: absolute;
-      inset: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      border-radius: var(--radius-xs);
-      background: rgba(255, 255, 255, 0.15);
-    }
-
-    .paper-caption {
-      font-size: 11px;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .paper-caption strong {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--color-forest);
-    }
-
-    .paper-caption span {
-      font-size: 10px;
-      color: var(--color-muted);
-    }
-
-    .art-block {
-      position: absolute;
-      z-index: 3;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 15px;
-      border-radius: var(--radius-sm);
-      box-shadow: 0 12px 26px rgba(20, 62, 51, 0.12);
-    }
-
-    .block-green {
-      top: 18%;
-      left: 6%;
-      background-color: var(--color-forest);
-      color: #ffffff;
-      transform: rotate(-6deg);
-    }
-
-    .block-orange {
-      bottom: 14%;
-      right: 6%;
-      background-color: var(--color-terracotta);
-      color: #ffffff;
-      transform: rotate(6deg);
-    }
-
-    .block-icon {
-      font-size: 14px;
-      opacity: 0.9;
-    }
-
-    .block-content b {
-      display: block;
-      font-size: 18px;
-      font-weight: 800;
-      line-height: 1;
-    }
-
-    .block-content span {
-      font-size: 10px;
-      font-weight: 500;
-      opacity: 0.9;
-      white-space: nowrap;
-    }
-
-    .art-star {
-      position: absolute;
-      color: var(--color-terracotta);
-      font-size: 18px;
-      user-select: none;
-    }
-
-    .star-a {
-      bottom: 18%;
-      left: 12%;
-    }
-
-    /* ==========================================================================
-       PHẦN 7: CÁC KHỐI NỘI DUNG (ABOUT, PRINCIPLES, TEAM, WORK, PROCESS)
-       Chức năng: Trình bày chi tiết thông tin, hỗ trợ vuốt ngang trên thiết bị nhỏ.
-       ========================================================================== */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 48px;
-      align-items: start;
-      margin-bottom: 48px;
-      width: 100%;
-    }
-
-    .about-copy p {
-      font-size: 15px;
-      line-height: 1.75;
-      color: var(--color-muted);
-      margin-bottom: 16px;
-    }
-
-    .about-action {
-      margin-top: 20px;
-    }
-
-    /* Nguyên tắc */
-    .principles-wrapper {
-      width: 100%;
-      position: relative;
-    }
-
-    .principles {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      width: 100%;
-    }
-
-    .principle-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 26px 22px;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .principle-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
-    .principle-no {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--color-leaf);
-      background-color: var(--color-leaf-soft);
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-    }
-
-    .principle-icon {
-      font-size: 18px;
-    }
-
-    .principle-title {
-      font-size: 17.5px;
-      font-weight: 700;
-      color: var(--color-ink);
-      letter-spacing: -0.02em;
-      margin-bottom: 10px;
-    }
-
-    .principle-desc {
-      font-size: 13.5px;
-      line-height: 1.65;
-      color: var(--color-muted);
-    }
-
-    /* Đội ngũ */
-    .team-section {
-      background-color: var(--bg-page-subtle);
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .team-grid-wrapper {
-      width: 100%;
-      position: relative;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-bottom: 28px;
-      width: 100%;
-    }
-
-    .person-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 14px 14px 20px;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .person-art {
-      height: 170px;
-      border-radius: var(--radius-md);
-      position: relative;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      width: 100%;
-    }
-
-    .person-art-one { background: linear-gradient(135deg, #dbe4c6 0%, #c4d4a8 100%); }
-    .person-art-two { background: linear-gradient(135deg, #d3ded7 0%, #b8cdc3 100%); }
-    .person-art-three { background: linear-gradient(135deg, #f0dcce 0%, #e8c6b2 100%); }
-
-    .avatar-initial {
-      font-family: var(--font-serif);
-      font-size: 54px;
-      font-weight: 500;
-      color: var(--color-forest);
-      position: relative;
-      z-index: 2;
-    }
-
-    .person-spark {
-      position: absolute;
-      top: 12px;
-      right: 14px;
-      font-size: 16px;
-      color: var(--color-terracotta);
-    }
-
-    .person-shape {
-      position: absolute;
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.4);
-      bottom: -25px;
-      left: calc(50% - 55px);
-    }
-
-    .person-sun {
-      position: absolute;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background-color: var(--color-leaf);
-      top: 16px;
-      left: 18px;
-    }
-
-    .person-badge {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 700;
-      padding: 3px 8px;
-      background: rgba(255, 255, 255, 0.92);
-      color: var(--color-forest);
-      border-radius: var(--radius-pill);
-    }
-
-    .person-body {
-      padding: 16px 4px 4px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .person-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 10px;
-      gap: 10px;
-    }
-
-    .person-role {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 600;
-      color: var(--color-leaf);
-      letter-spacing: 0.08em;
-      margin-bottom: 3px;
-    }
-
-    .person-name {
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--color-ink);
-      letter-spacing: -0.02em;
-    }
-
-    .person-arrow-btn {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background-color: var(--bg-surface-soft);
-      display: grid;
-      place-items: center;
-      font-size: 13px;
-      color: var(--color-forest);
-      transition: var(--transition);
-      flex-shrink: 0;
-    }
-
-    .person-bio {
-      font-size: 13px;
-      line-height: 1.62;
-      color: var(--color-muted);
-    }
-
-    .team-footer-note {
-      display: flex;
-      justify-content: center;
-      margin-top: 16px;
-      width: 100%;
-    }
-
-    .note-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 18px;
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-pill);
-      font-size: 12.5px;
-      color: var(--color-muted);
-      box-shadow: var(--shadow-sm);
-      text-align: center;
-    }
-
-    .note-star {
-      color: var(--color-terracotta);
-    }
-
-    /* Dự án */
-    .project-grid-wrapper {
-      width: 100%;
-      position: relative;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 26px;
-      align-items: start;
-      width: 100%;
-    }
-
-    .project-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 16px;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-
-    .project-visual {
-      height: 270px;
-      border-radius: var(--radius-md);
-      position: relative;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-      width: 100%;
-    }
-
-    .project-large .project-visual {
-      height: 310px;
-    }
-
-    .visual-portfolio {
-      background: linear-gradient(135deg, #c2d4af 0%, #a8c292 100%);
-    }
-
-    .visual-product {
-      background: linear-gradient(135deg, #ebc8af 0%, #dab194 100%);
-    }
-
-    .visual-tag-pill {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      z-index: 4;
-      padding: 4px 12px;
-      background-color: rgba(20, 62, 51, 0.88);
-      color: #ffffff;
-      border-radius: var(--radius-pill);
-      font-family: var(--font-mono);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-    }
-
-    .mock-browser {
-      width: 86%;
-      height: 76%;
-      background: #ffffff;
-      border-radius: var(--radius-sm);
-      box-shadow: 0 14px 32px rgba(20, 62, 51, 0.15);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .mock-top {
-      height: 25px;
-      background-color: var(--color-forest);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 10px;
-    }
-
-    .mock-dots {
-      display: flex;
-      gap: 4px;
-    }
-
-    .mock-dots i {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.3);
-    }
-
-    .mock-dots i:nth-child(1) { background-color: #f77268; }
-    .mock-dots i:nth-child(2) { background-color: #fbc746; }
-    .mock-dots i:nth-child(3) { background-color: #55c85a; }
-
-    .mock-url {
-      font-family: var(--font-mono);
-      font-size: 8.5px;
-      color: rgba(255, 255, 255, 0.85);
-    }
-
-    .mock-lock {
-      font-size: 8.5px;
-      opacity: 0.7;
-    }
-
-    .mock-content {
-      height: calc(100% - 25px);
-      display: grid;
-      grid-template-columns: 24% 1fr;
-      background-color: #f9f8f4;
-    }
-
-    .mock-sidebar {
-      background-color: #eae7dd;
-      border-right: 1px solid rgba(20, 62, 51, 0.08);
-      padding: 8px 5px;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .mock-nav-item {
-      height: 5px;
-      border-radius: 3px;
-      background-color: rgba(20, 62, 51, 0.15);
-    }
-
-    .mock-nav-item.active {
-      background-color: var(--color-leaf);
-    }
-
-    .mock-main {
-      padding: 10px 8px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .mock-headline {
-      width: 32%;
-      height: 5px;
-      background-color: var(--color-terracotta);
-      border-radius: 3px;
-      margin-bottom: 6px;
-    }
-
-    .mock-title-bar {
-      width: 75%;
-      height: 8px;
-      background-color: var(--color-forest);
-      border-radius: 3px;
-      margin-bottom: 5px;
-    }
-
-    .mock-sub-bar {
-      width: 50%;
-      height: 5px;
-      background-color: rgba(20, 62, 51, 0.25);
-      border-radius: 3px;
-      margin-bottom: 8px;
-    }
-
-    .mock-cards {
-      display: flex;
-      gap: 5px;
-      margin-top: auto;
-    }
-
-    .mock-card {
-      flex: 1;
-      height: 36px;
-      border-radius: 4px;
-    }
-
-    .card-a { background-color: #d6e0c7; }
-    .card-b { background-color: #edd1be; }
-    .card-c { background-color: #bad3c2; }
-
-    .product-sun {
-      position: absolute;
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #fbd29c 0%, #e8a272 100%);
-      top: 15%;
-      right: 14%;
-    }
-
-    .product-shape {
-      position: absolute;
-      bottom: -25px;
-      border-radius: 90px 90px 0 0;
-    }
-
-    .shape-one {
-      left: 14%;
-      width: 130px;
-      height: 170px;
-      background-color: var(--color-forest);
-      transform: rotate(20deg);
-    }
-
-    .shape-two {
-      right: 18%;
-      width: 110px;
-      height: 140px;
-      background-color: var(--color-terracotta);
-      transform: rotate(-18deg);
-    }
-
-    .product-badge {
-      position: absolute;
-      top: 24%;
-      left: 15%;
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .product-word {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: -0.06em;
-      color: #ffffff;
-      line-height: 0.9;
-      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    .product-sub {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: var(--color-forest-dark);
-      margin-top: 4px;
-    }
-
-    .project-details {
-      padding: 16px 4px 4px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-
-    .project-name {
-      font-size: 17.5px;
-      font-weight: 700;
-      color: var(--color-ink);
-      letter-spacing: -0.02em;
-    }
-
-    .project-year-pill {
-      font-family: var(--font-mono);
-      font-size: 10.5px;
-      font-weight: 600;
-      padding: 3px 9px;
-      background-color: var(--bg-surface-soft);
-      color: var(--color-subtle);
-      border-radius: var(--radius-pill);
-      flex-shrink: 0;
-    }
-
-    .project-description {
-      font-size: 13.5px;
-      line-height: 1.65;
-      color: var(--color-muted);
-      margin-bottom: 14px;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 16px;
-    }
-
-    .p-tag {
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 10px;
-      background-color: var(--bg-surface-soft);
-      color: var(--color-forest);
-      border-radius: var(--radius-pill);
-    }
-
-    .project-link-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 12px;
-      border-top: 1px solid var(--border-color);
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--color-forest);
-      transition: var(--transition);
-    }
-
-    .project-link-btn:hover {
-      color: var(--color-leaf);
-    }
-
-    .project-link-btn:hover .link-arrow {
-      transform: translateX(4px);
-    }
-
-    /* Quy trình */
-    .process-section {
-      background-color: var(--bg-page-subtle);
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .process-grid-wrapper {
-      width: 100%;
-      position: relative;
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      width: 100%;
-    }
-
-    .process-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
-      padding: 24px 20px;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .process-step-no {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--color-leaf);
-      background-color: var(--color-leaf-soft);
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      margin-bottom: 16px;
-    }
-
-    .process-card h3 {
-      font-size: 16.5px;
-      font-weight: 700;
-      color: var(--color-ink);
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
-    }
-
-    .process-card p {
-      font-size: 13px;
-      line-height: 1.6;
-      color: var(--color-muted);
-    }
-
-    /* ==========================================================================
-       PHẦN 8: HỘP LIÊN HỆ KÊU GỌI HỢP TÁC (CONTACT CTA) & CHÂN TRANG (FOOTER)
-       ========================================================================== */
-    .contact-wrap {
-      padding-top: 30px;
-      padding-bottom: 80px;
-      width: 100%;
-    }
-
-    .contact-box {
-      background: linear-gradient(145deg, #12382e 0%, #0e2b23 100%);
-      border-radius: var(--radius-xl);
-      color: #ffffff;
-      padding: 60px 36px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 50px rgba(14, 43, 35, 0.2);
-      width: 100%;
-    }
-
-    .contact-pattern {
-      position: absolute;
-      top: -20px;
-      left: 6%;
-      font-size: 200px;
-      color: rgba(255, 255, 255, 0.03);
-      user-select: none;
-      pointer-events: none;
-      line-height: 1;
-    }
-
-    .contact-content {
-      position: relative;
-      z-index: 2;
-      max-width: 720px;
-      margin-inline: auto;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
-
-    .contact-heading {
-      font-size: clamp(26px, 4.2vw, 48px);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.04em;
-      color: #ffffff;
-      margin-top: 18px;
-      margin-bottom: 16px;
-      text-wrap: balance;
-    }
-
-    .contact-heading em {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-weight: 400;
-      color: #b9d856;
-    }
-
-    .contact-copy {
-      font-size: 14.5px;
-      line-height: 1.75;
-      color: rgba(255, 255, 255, 0.82);
-      margin-bottom: 30px;
-      max-width: 600px;
-    }
-
-    .contact-actions {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
-    }
-
-    .btn-icon {
-      font-size: 15px;
-    }
-
-    .contact-info-grid {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      width: 100%;
-    }
-
-    .info-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 14px;
-      background-color: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: var(--radius-pill);
-      font-size: 12px;
-      backdrop-filter: blur(6px);
-      white-space: nowrap;
-    }
-
-    .info-label {
-      color: rgba(255, 255, 255, 0.65);
-    }
-
-    .info-val {
-      color: #ffffff;
-      font-weight: 600;
-    }
-
-    .site-footer {
-      min-height: 80px;
-      border-top: 1px solid var(--border-color);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      padding-block: 22px;
-    }
-
-    .footer-brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .footer-brand .brand-mark {
-      transform: scale(0.8) skew(-14deg);
-    }
-
-    .footer-brand .brand-name {
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-    }
-
-    .footer-copy {
-      font-size: 12px;
-      color: var(--color-subtle);
-      text-align: center;
-    }
-
-    .back-top-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 16px;
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-pill);
-      font-family: var(--font-mono);
-      font-size: 10.5px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      color: var(--color-forest);
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-      white-space: nowrap;
-    }
-
-    .back-top-pill:hover {
-      background-color: var(--color-forest);
-      color: #ffffff;
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-card);
-    }
-
-    .top-arrow {
-      transition: transform 0.25s ease;
-    }
-
-    /* ==========================================================================
-       PHẦN 9: ĐIỀU KIỆN HIỆU ỨNG (CHỈ CHẠY TRÊN PC / TABLET ĐỦ MẠNH)
-       Chức năng: Tắt toàn bộ chuyển động ngầm trên Mobile để tiết kiệm pin & GPU.
-       ========================================================================== */
-    @media (min-width: 861px) and (hover: hover) {
-      @keyframes orbit-turn { to { transform: rotate(360deg); } }
-      @keyframes paper-float {
-        0%, 100% { transform: rotate(-5deg) translateY(0); }
-        50% { transform: rotate(-3deg) translateY(-8px); }
-      }
-      @keyframes float-gentle {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-8px); }
-      }
-      @keyframes pulse-dot {
-        0%, 100% { transform: scale(1); box-shadow: 0 0 0 3px rgba(141, 166, 51, 0.25); }
-        50% { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(141, 166, 51, 0.08); }
-      }
-
-      .orbit-one { animation: orbit-turn 50s linear infinite; }
-      .orbit-two { animation: orbit-turn 65s linear infinite reverse; }
-      .art-sun { animation: float-gentle 7s ease-in-out infinite; }
-      .art-paper { animation: paper-float 8s ease-in-out infinite; }
-      .block-green { animation: float-gentle 7.5s ease-in-out infinite 0.5s; }
-      .block-orange { animation: float-gentle 8.5s ease-in-out infinite 1s; }
-      .status-dot, .dot-leaf, .star-a { animation: pulse-dot 2.5s infinite ease-in-out; }
-
-      .person-card:hover, .project-card:hover, .process-card:hover {
-        transform: translateY(-6px);
-        box-shadow: var(--shadow-hover);
-        border-color: var(--border-color-hover);
-      }
-      .person-card:hover .avatar-initial { transform: scale(1.08); }
-      .person-card:hover .person-arrow-btn { background-color: var(--color-forest); color: #ffffff; transform: translate(2px, -2px); }
-      .principle-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-card);
-        border-color: var(--border-color-hover);
-      }
-      .button-primary:hover {
-        background-color: var(--color-forest-light);
-        transform: translateY(-2px);
-        box-shadow: 0 12px 24px rgba(20, 62, 51, 0.22);
-      }
-      .button-outline:hover {
-        border-color: var(--color-forest);
-        color: var(--color-forest);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-card);
-      }
-      .button:hover .btn-arrow { transform: translateX(4px); }
-    }
-
-    /* Trên Mobile (<= 860px hoặc cảm ứng): Tắt animation ngầm */
-    @media (max-width: 860px), (hover: none) {
-      .orbit-one, .orbit-two, .art-sun, .art-paper, 
-      .block-green, .block-orange, .status-dot, .dot-leaf, .star-a {
-        animation: none !important;
-      }
-    }
-
-    /* ==========================================================================
-       PHẦN 10: RESPONSIVE CHO TABLET & MOBILE (TƯƠNG THÍCH MỌI DÒNG MÁY)
-       Chức năng: Chuyển menu sang dạng Hamburger, chuyển Card sang vuốt ngang.
-       ========================================================================== */
-    @media (max-width: 992px) {
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        padding-top: 32px;
-        padding-bottom: 48px;
-      }
-      .hero-art { height: 360px; }
-      .about-grid { grid-template-columns: 1fr; gap: 24px; }
-      .project-grid { grid-template-columns: 1fr; gap: 24px; }
-      .process-grid { grid-template-columns: repeat(2, 1fr); }
-      .project-large .project-visual, .project-visual { height: 250px; }
-    }
-
-    /* Màn hình Mobile (<= 860px) */
-    @media (max-width: 860px) {
-      :root {
-        --header-h: 68px;
-      }
-
-      .section-wrap { padding-inline: 16px; }
-      .header-inner { padding-inline: 16px; }
-
-      /* Ẩn menu desktop, hiện menu mobile */
-      .desktop-nav { display: none !important; }
-      .mobile-nav-container { display: block !important; }
-
-      .nav-menu[open] .menu-toggle {
-        background-color: var(--color-forest);
-      }
-      .nav-menu[open] .toggle-line {
-        background-color: #ffffff;
-      }
-      .nav-menu[open] .toggle-line:first-child {
-        transform: translateY(3.5px) rotate(45deg);
-      }
-      .nav-menu[open] .toggle-line:last-child {
-        transform: translateY(-3.5px) rotate(-45deg);
-      }
-
-      /* Khung menu xổ xuống trên mobile */
-      .mobile-nav-dropdown {
-        display: none;
-        position: absolute;
-        top: calc(100% + 10px);
-        right: 0;
-        width: min(260px, calc(100vw - 32px));
-        background-color: var(--bg-surface);
-        border: 1px solid var(--border-color);
-        border-radius: var(--radius-md);
-        padding: 14px;
-        box-shadow: var(--shadow-hover);
-        flex-direction: column;
-        gap: 6px;
-        z-index: 1000;
-      }
-
-      .nav-menu[open] .mobile-nav-dropdown {
-        display: flex;
-      }
-
-      .mobile-nav-dropdown .nav-item {
-        width: 100%;
-        padding: 10px 14px;
-        border-radius: var(--radius-sm);
-        font-size: 14px;
-      }
-
-      .mobile-nav-dropdown .nav-contact {
-        width: 100%;
-        justify-content: center;
-        margin-top: 4px;
-        margin-left: 0;
-      }
-
-      /* Hero Mobile */
-      .hero {
-        padding-top: 24px;
-        padding-bottom: 40px;
-        gap: 28px;
-      }
-
-      .hero-title {
-        font-size: clamp(28px, 7.5vw, 38px);
-        margin-top: 14px;
-        margin-bottom: 14px;
-      }
-
-      .hero-intro {
-        font-size: 14.5px;
-        margin-bottom: 22px;
-      }
-
-      .hero-actions {
-        width: 100%;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-        margin-bottom: 22px;
-      }
-
-      .hero-actions .button { width: 100%; }
-
-      .hero-art {
-        height: 280px;
-        border-radius: var(--radius-lg);
-      }
-
-      .orbit-one { width: 260px; height: 180px; }
-      .orbit-two { width: 200px; height: 260px; }
-
-      .art-sun { width: 60px; height: 60px; top: 20px; right: 20px; }
-      .art-paper { width: 180px; height: 220px; padding: 12px; }
-      .paper-shape { height: 95px; }
-
-      .block-green { left: 4%; top: 15%; padding: 6px 10px; }
-      .block-green b { font-size: 15px; }
-      .block-green span { font-size: 9px; }
-
-      .block-orange { right: 4%; bottom: 12%; padding: 6px 10px; }
-      .block-orange b { font-size: 15px; }
-      .block-orange span { font-size: 9px; }
-
-      .section-block {
-        padding-top: 60px;
-        padding-bottom: 60px;
-      }
-
-      .section-heading { margin-bottom: 24px; }
-      .section-title-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        margin-bottom: 24px;
-      }
-
-      .swipe-hint { display: inline-flex; }
-
-      /* Vuốt ngang các card trên mobile */
-      .principles,
-      .team-grid,
-      .project-grid,
-      .process-grid {
-        display: flex !important;
-        overflow-x: auto !important;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        gap: 14px;
-        padding-bottom: 14px;
-        width: 100%;
-        scrollbar-width: thin;
-        scrollbar-color: var(--color-leaf) rgba(20, 62, 51, 0.08);
-      }
-
-      .principles::-webkit-scrollbar,
-      .team-grid::-webkit-scrollbar,
-      .project-grid::-webkit-scrollbar,
-      .process-grid::-webkit-scrollbar {
-        height: 4px;
-      }
-
-      .principles::-webkit-scrollbar-thumb,
-      .team-grid::-webkit-scrollbar-thumb,
-      .project-grid::-webkit-scrollbar-thumb,
-      .process-grid::-webkit-scrollbar-thumb {
-        background: var(--color-leaf);
-        border-radius: var(--radius-pill);
-      }
-
-      .principle-card { flex: 0 0 84%; max-width: 310px; scroll-snap-align: start; padding: 20px 18px; }
-      .person-card { flex: 0 0 78%; max-width: 280px; scroll-snap-align: start; padding: 12px 12px 18px; }
-      .person-art { height: 150px; }
-      .avatar-initial { font-size: 44px; }
-      .project-card { flex: 0 0 88%; max-width: 320px; scroll-snap-align: start; padding: 14px; }
-      .project-large .project-visual, .project-visual { height: 190px; }
-      .process-card { flex: 0 0 78%; max-width: 280px; scroll-snap-align: start; padding: 20px 16px; }
-
-      .contact-box { padding: 40px 18px; border-radius: var(--radius-lg); }
-      .contact-actions { flex-direction: column; align-items: stretch; width: 100%; gap: 10px; }
-      .contact-actions .button { width: 100%; }
-      .contact-info-grid { flex-direction: column; align-items: stretch; width: 100%; }
-      .info-pill { width: 100%; justify-content: center; }
-
-      .site-footer { flex-direction: column; gap: 14px; text-align: center; }
-    }
-
-    /* Trợ năng */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+  <!-- Liên kết tới file style.css -->
+  <link rel="stylesheet" href="style.css?v=20261015-studiolab">
 </head>
-<body>
-  <!-- Phím tắt trợ năng dành cho người dùng bàn phím -->
+<body id="top">
+  <!-- Phím tắt trợ năng cho người dùng bàn phím -->
   <a class="skip-link" href="#main-content">Bỏ qua đến nội dung chính</a>
 
   <!-- ==========================================================================
-       PHẦN 1: HEADER & THANH ĐIỀU HƯỚNG CỐ ĐỊNH (STICKY HEADER)
-       Chức năng: 
-       - Cố định trên đỉnh trình duyệt, có hiệu ứng kính mờ (backdrop-filter).
-       - Desktop: Hiển thị dàn ngang đầy đủ 7 mục để người dùng bấm cuộn tới mục đó.
-       - Mobile: Tự động chuyển thành nút Hamburger menu thuần CSS mở dropdown.
+       1. HEADER & THANH ĐIỀU HƯỚNG CỐ ĐỊNH (STICKY HEADER)
+       Khi bấm vào từng mục, trang sẽ cuộn khớp chính xác từ mép trên của mục đó.
        ========================================================================== -->
   <header class="site-header">
     <div class="header-inner">
-      <!-- Logo thương hiệu -->
-      <a href="#hero" class="brand" aria-label="Về trang chủ Nhóm Thiết Kế Web">
-        <div class="brand-mark">
+      <a href="#top" class="brand" aria-label="Về đầu trang STUDIO.LAB">
+        <span class="brand-mark" aria-hidden="true">
           <span></span>
           <span></span>
           <span></span>
-        </div>
-        <div class="brand-text">
+        </span>
+        <span class="brand-text">
           <span class="brand-title">STUDIO<span class="brand-dot">.</span>LAB</span>
-          <span class="brand-sub">NHÓM THIẾT KẾ WEB</span>
-        </div>
+          <span class="brand-sub">PORTFOLIO NHÓM</span>
+        </span>
       </a>
 
-      <!-- 1.1: Menu điều hướng 7 mục hiển thị trực tiếp trên Desktop / Máy tính -->
-      <nav class="desktop-nav" aria-label="Menu chính trên máy tính">
+      <!-- Menu điều hướng chính trên Desktop -->
+      <nav class="desktop-nav" aria-label="Điều hướng chính">
         <a href="#hero" class="nav-item">Trang chủ</a>
-        <a href="#about" class="nav-item">Về chúng tôi</a>
+        <a href="#about" class="nav-item">Giới thiệu</a>
         <a href="#principles" class="nav-item">Nguyên tắc</a>
         <a href="#team" class="nav-item">Đội ngũ</a>
         <a href="#work" class="nav-item">Dự án</a>
         <a href="#process" class="nav-item">Quy trình</a>
-        <a href="#contact" class="nav-contact">
-          <span>Liên hệ ngay</span>
-          <span class="nav-arrow">→</span>
-        </a>
       </nav>
 
-      <!-- 1.2: Menu điều hướng dạng nút bấm xổ xuống trên Điện thoại Mobile -->
-      <div class="mobile-nav-container">
-        <details class="nav-menu">
-          <summary class="menu-toggle" aria-label="Mở danh sách các mục trên di động">
+      <!-- Cụm nút chức năng: Đổi chế độ Tối / Sáng dịu mắt + Liên hệ + Menu Mobile -->
+      <div class="header-actions">
+        <div class="theme-switcher">
+          <input type="checkbox" id="theme-switch" class="theme-checkbox" aria-label="Chuyển đổi giao diện Tối hoặc Sáng dịu mắt">
+          <label for="theme-switch" class="theme-toggle-btn" title="Đổi giao diện Tối / Sáng dịu mắt (Anti-Glare)">
+            <span class="mode-dark-label"><span class="mode-icon" aria-hidden="true">☾</span> Tối</span>
+            <span class="mode-light-label"><span class="mode-icon" aria-hidden="true">☀</span> Sáng dịu</span>
+          </label>
+        </div>
+
+        <a href="#contact" class="nav-contact">
+          <span>Liên hệ</span>
+          <span class="nav-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <!-- Menu Hamburger thuần CSS trên Mobile & Tablet -->
+        <details class="mobile-menu">
+          <summary class="menu-toggle" aria-label="Mở menu điều hướng">
             <span class="toggle-line"></span>
             <span class="toggle-line"></span>
           </summary>
-          <nav class="mobile-nav-dropdown" aria-label="Menu chính trên di động">
+          <nav class="mobile-nav-dropdown" aria-label="Menu di động">
             <a href="#hero" class="nav-item">Trang chủ</a>
-            <a href="#about" class="nav-item">Về chúng tôi</a>
+            <a href="#about" class="nav-item">Giới thiệu</a>
             <a href="#principles" class="nav-item">Nguyên tắc</a>
             <a href="#team" class="nav-item">Đội ngũ</a>
             <a href="#work" class="nav-item">Dự án</a>
             <a href="#process" class="nav-item">Quy trình</a>
-            <a href="#contact" class="nav-contact">
+            <a href="#contact" class="nav-contact mobile-cta">
               <span>Liên hệ ngay</span>
-              <span class="nav-arrow">→</span>
+              <span aria-hidden="true">→</span>
             </a>
           </nav>
         </details>
@@ -1907,573 +88,614 @@
     </div>
   </header>
 
+  <!-- ==========================================================================
+       2. NỘI DUNG CHÍNH (<main>) - CẤU TRÚC BENTO PORTFOLIO HIỆN ĐẠI, GỌN GÀNG
+       ========================================================================== -->
   <main id="main-content">
-    <!-- ==========================================================================
-         PHẦN 2: HERO SECTION (KHU VỰC GIỚI THIỆU CHÍNH)
-         Chức năng: Tiêu đề H1 ấn tượng, thông điệp studio, nút kêu gọi hành động,
-         và khung tranh minh họa kỹ thuật số bo tròn nghệ thuật.
-         ========================================================================== -->
-    <section class="hero section-wrap" id="hero">
-      <!-- Cột trái: Văn bản & Nút bấm -->
-      <div class="hero-copy">
-        <div class="eyebrow-pill">
-          <span class="status-dot"></span>
-          <span>SẴN SÀNG NHẬN DỰ ÁN MỚI</span>
-        </div>
 
-        <h1 class="hero-title">
-          Kiến tạo trải nghiệm số <em>độc bản</em> &amp; <em>truyền cảm hứng</em>
-        </h1>
-
-        <p class="hero-intro">
-          Chúng tôi là nhóm thiết kế &amp; phát triển website chuyên sâu, đồng hành cùng doanh nghiệp xây dựng giao diện hiện đại, tối ưu trải nghiệm và thúc đẩy chuyển đổi bền vững.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#work" class="button button-primary">
-            <span>Xem dự án tiêu biểu</span>
-            <span class="btn-arrow">→</span>
-          </a>
-          <a href="#contact" class="button button-outline">
-            <span>Tư vấn dự án</span>
-            <span class="btn-arrow">↗</span>
-          </a>
-        </div>
-
-        <div class="hero-feature-tags">
-          <span class="feature-tag">
-            <span class="tag-icon">✦</span> Chuẩn mực UI/UX
-          </span>
-          <span class="feature-tag">
-            <span class="tag-icon">✦</span> Tốc độ vượt trội
-          </span>
-          <span class="feature-tag">
-            <span class="tag-icon">✦</span> Thích ứng đa thiết bị
-          </span>
-        </div>
-      </div>
-
-      <!-- Cột phải: Khung tranh nghệ thuật số (Bo tròn, khóa tràn lề an toàn) -->
-      <div class="hero-art-container">
-        <div class="hero-art" aria-hidden="true">
-          <div class="art-orbit orbit-one"></div>
-          <div class="art-orbit orbit-two"></div>
-          <div class="art-sun"></div>
-
-          <!-- Thẻ mô phỏng thiết kế nổi bo tròn -->
-          <div class="art-paper">
-            <div class="paper-header">
-              <span class="paper-index">01 / STUDIO LAB</span>
-              <span class="paper-badge">2026 EDITION</span>
-            </div>
-            <div class="paper-shape">
-              <div class="shape-inner"></div>
-            </div>
-            <div class="paper-caption">
-              <strong>Digital Crafts &amp; Modern UI</strong>
-              <span>Thiết kế tinh gọn cho kỷ nguyên số</span>
-            </div>
-          </div>
-
-          <!-- Khối số liệu bo tròn nổi bật -->
-          <div class="art-block block-green">
-            <div class="block-icon">★</div>
-            <div class="block-content">
-              <b>100%</b>
-              <span>Bespoke Design</span>
-            </div>
-          </div>
-
-          <div class="art-block block-orange">
-            <div class="block-icon">◆</div>
-            <div class="block-content">
-              <b>05+</b>
-              <span>Năm kinh nghiệm</span>
-            </div>
-          </div>
-
-          <div class="art-star star-a">✦</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         PHẦN 3: VỀ CHÚNG TÔI (ABOUT SECTION)
-         Chức năng: Trình bày câu chuyện, tư duy thiết kế và triết lý làm việc.
-         ========================================================================== -->
-    <section class="section-block" id="about">
-      <div class="section-wrap">
-        <div class="section-heading">
+    <!-- ========================================================================
+         HERO SECTION: GIỚI THIỆU NHÓM & BẢNG BENTO TRỰC QUAN
+         ======================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="section-wrap hero-grid">
+        <!-- Cột trái: Thông điệp Portfolio & Nút điều hướng -->
+        <div class="hero-copy">
           <div class="eyebrow-pill">
-            <span class="status-dot"></span>
-            <span>VỀ CHÚNG TÔI</span>
+            <span class="status-dot" aria-hidden="true"></span>
+            <span>WEB DESIGN PORTFOLIO • <time datetime="2026">2026</time></span>
           </div>
-          <span class="section-index">[ 01 ]</span>
+
+          <h1 class="hero-title">
+            Thiết kế giao diện số <em>tinh gọn</em>, chuẩn mực &amp; <em>thân thiện</em>.
+          </h1>
+
+          <p class="hero-intro">
+            Không gian trưng bày dự án của nhóm <strong>Thanh Phương, Ngọc Hiếu, Tiến Đạt</strong>. Chúng tôi tập trung xây dựng cấu trúc Semantic HTML5 sạch, hệ thống lưới CSS Grid/Flexbox linh hoạt và tối ưu trải nghiệm trên mọi thiết bị.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#work" class="button button-primary">
+              <span>Khám phá dự án</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="#team" class="button button-outline">
+              <span>Xem thành viên nhóm</span>
+              <span class="btn-arrow" aria-hidden="true">↓</span>
+            </a>
+          </div>
+
+          <ul class="hero-feature-tags" aria-label="Tiêu chuẩn kỹ thuật">
+            <li class="feature-tag"><span class="tag-icon" aria-hidden="true">✦</span> W3C Validated</li>
+            <li class="feature-tag"><span class="tag-icon" aria-hidden="true">✦</span> Anti-Glare Theme</li>
+            <li class="feature-tag"><span class="tag-icon" aria-hidden="true">✦</span> Responsive 320px–4K</li>
+          </ul>
         </div>
 
-        <div class="about-grid">
-          <div class="about-lead">
-            <h2 class="section-title">
-              Định hình sản phẩm số với tư duy <em>khác biệt</em> và chuẩn mực cao.
-            </h2>
-          </div>
-
-          <div class="about-copy">
-            <p>
-              Chúng tôi tin rằng một website xuất sắc không dừng lại ở vẻ đẹp thị giác, mà là bản giao hưởng hài hòa giữa câu chuyện thương hiệu, tính tiện dụng và hiệu năng vận hành ổn định.
-            </p>
-            <p>
-              Mỗi chi tiết nhỏ từ hệ thống khoảng trắng, kiểu chữ, cấu trúc thẻ cho đến các góc bo tròn mềm mại đều được tính toán kỹ lưỡng nhằm đem lại cảm giác dễ chịu và thân thiện nhất cho người dùng trên mọi dòng máy.
-            </p>
-            <div class="about-action">
-              <a href="#team" class="text-link">
-                <span>Tìm hiểu đội ngũ sáng tạo</span>
-                <span class="link-arrow">→</span>
+        <!-- Cột phải: Bảng Bento Portfolio Tổng Quan (<figure> & <figcaption>) -->
+        <figure class="hero-bento" aria-label="Bảng tổng quan hồ sơ nhóm STUDIO.LAB">
+          <!-- Thẻ Bento 1: Đội ngũ nòng cốt -->
+          <div class="bento-card bento-team-preview">
+            <div class="bento-card-head">
+              <span class="bento-label">CORE TEAM MEMBERS</span>
+              <span class="bento-status">03 Thành viên</span>
+            </div>
+            <div class="bento-avatars">
+              <a href="#team" class="bento-member-chip">
+                <span class="chip-avatar av-one">TP</span>
+                <span class="chip-info">
+                  <strong>Thanh Phương</strong>
+                  <small>Frontend &amp; UI Lead</small>
+                </span>
+              </a>
+              <a href="#team" class="bento-member-chip">
+                <span class="chip-avatar av-two">NH</span>
+                <span class="chip-info">
+                  <strong>Ngọc Hiếu</strong>
+                  <small>UI/UX &amp; System</small>
+                </span>
+              </a>
+              <a href="#team" class="bento-member-chip">
+                <span class="chip-avatar av-three">TĐ</span>
+                <span class="chip-info">
+                  <strong>Tiến Đạt</strong>
+                  <small>Layout &amp; QA</small>
+                </span>
               </a>
             </div>
           </div>
+
+          <!-- Thẻ Bento 2: Kiến trúc mã nguồn -->
+          <div class="bento-card bento-arch">
+            <span class="bento-label">KIẾN TRÚC GIAO DIỆN</span>
+            <strong class="bento-big-text">Semantic HTML5 &amp; CSS Grid</strong>
+            <p class="bento-sub-text">Quản lý 100% bằng biến CSS tại <code>:root</code></p>
+            <div class="bento-pills">
+              <span>&lt;header&gt;</span>
+              <span>&lt;main&gt;</span>
+              <span>&lt;section&gt;</span>
+              <span>&lt;article&gt;</span>
+            </div>
+          </div>
+
+          <!-- Thẻ Bento 3: Điểm hiệu năng -->
+          <div class="bento-card bento-score">
+            <span class="bento-label">HIỆU NĂNG</span>
+            <div class="score-circle">98<span>+</span></div>
+            <p class="bento-sub-text">Google PageSpeed &amp; Tương phản WCAG AA</p>
+          </div>
+          <figcaption class="sr-only">Tóm tắt hồ sơ năng lực và đội ngũ thiết kế web STUDIO.LAB</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 01: GIỚI THIỆU & NĂNG LỰC KỸ THUẬT (<section> + <aside> + <mark>)
+         ======================================================================== -->
+    <section class="section-block" id="about">
+      <div class="section-wrap">
+        <!-- Thanh tiêu đề gọn gàng giúp nội dung chính luôn hiển thị ngay từ đầu -->
+        <div class="section-header-bar">
+          <div class="header-bar-left">
+            <div class="eyebrow-pill">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>01 • VỀ CHÚNG TÔI</span>
+            </div>
+            <h2 class="section-title">
+              Tư duy thiết kế <em>hiện đại</em> &amp; mã nguồn chuẩn hóa.
+            </h2>
+          </div>
+          <p class="section-subtitle">
+            Kết hợp hài hòa giữa thẩm mỹ thị giác, khả năng tiếp cận (Accessibility) và tốc độ phản hồi tức thì.
+          </p>
+        </div>
+
+        <div class="about-bento-grid">
+          <div class="about-story-card">
+            <p class="about-lead-text">
+              Chúng tôi xây dựng đồ án dựa trên nguyên tắc <mark class="highlight-mark">không lạm dụng thẻ vô nghĩa</mark>, ưu tiên cấu trúc ngữ nghĩa rõ ràng kết hợp bảng màu chống chói giúp người xem tra cứu thông tin thoải mái trên cả máy tính lẫn điện thoại.
+            </p>
+
+            <div class="about-stats-grid">
+              <div class="mini-stat-box">
+                <strong>100%</strong>
+                <span>Chuẩn W3C Validator</span>
+              </div>
+              <div class="mini-stat-box">
+                <strong>&ge; 44px</strong>
+                <span>Vùng chạm tiêu chuẩn</span>
+              </div>
+              <div class="mini-stat-box">
+                <strong>&lt; 1.0s</strong>
+                <span>Tải trang lần đầu (FCP)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Khối <aside> hiển thị thanh kỹ năng của nhóm -->
+          <aside class="about-skills-aside" aria-label="Kỹ năng trọng tâm của nhóm">
+            <h3 class="aside-heading">Mức độ hoàn thiện tiêu chí kỹ thuật</h3>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Cấu trúc Semantic HTML5 &amp; SEO</span>
+                <strong>98%</strong>
+              </div>
+              <div class="skill-bar"><span class="skill-fill w-98"></span></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Dàn trang CSS Grid &amp; Flexbox</span>
+                <strong>96%</strong>
+              </div>
+              <div class="skill-bar"><span class="skill-fill w-96"></span></div>
+            </div>
+            <div class="skill-item">
+              <div class="skill-meta">
+                <span>Design System &amp; Responsive Mobile-First</span>
+                <strong>95%</strong>
+              </div>
+              <div class="skill-bar"><span class="skill-fill w-95"></span></div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- ==========================================================================
-         PHẦN 4: NGUYÊN TẮC THIẾT KẾ (PRINCIPLES)
-         Chức năng: 3 giá trị cốt lõi (Tối giản, Hiệu năng, Thân thiện), 
-         trên mobile hỗ trợ vuốt lướt ngang (Horizontal Carousel).
-         ========================================================================== -->
-    <section class="section-block" id="principles">
+    <!-- ========================================================================
+         SECTION 02: NGUYÊN TẮC CỐT LÕI (PRINCIPLES)
+         ======================================================================== -->
+    <section class="section-block section-subtle" id="principles">
       <div class="section-wrap">
-        <div class="section-heading">
-          <div class="eyebrow-pill">
-            <span class="status-dot"></span>
-            <span>NGUYÊN TẮC CỐT LÕI</span>
-          </div>
-          <span class="section-index">[ 02 ]</span>
-        </div>
-
-        <div class="section-title-row">
-          <div>
+        <div class="section-header-bar">
+          <div class="header-bar-left">
+            <div class="eyebrow-pill">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>02 • NGUYÊN TẮC CỐT LÕI</span>
+            </div>
             <h2 class="section-title">
-              3 Giá trị tạo nên <em>khác biệt</em>.
+              3 Giá trị định hình <em>chất lượng sản phẩm</em>.
             </h2>
           </div>
           <p class="section-subtitle">
-            Những tôn chỉ nghề nghiệp dẫn lối cho từng quyết định thiết kế và lập trình của chúng tôi.
+            Mọi thành phần giao diện đều tuân thủ chặt chẽ bộ tiêu chuẩn kiểm thử UI/UX trước khi xuất bản.
           </p>
         </div>
 
-        <div class="principles-wrapper">
-          <div class="swipe-hint">
-            <span>⟵ Vuốt ngang để xem các nguyên tắc ⟶</span>
+        <div class="cards-grid-3">
+          <article class="feature-card">
+            <div class="card-top-row">
+              <span class="step-badge">01</span>
+              <span class="card-tag">SEMANTIC &amp; CLEAN</span>
+            </div>
+            <h3 class="card-heading">Tối Giản &amp; Rõ Nghĩa</h3>
+            <p class="card-text">
+              Phân chia bố cục bằng các thẻ ngữ nghĩa chuẩn HTML5, lược bỏ các chi tiết rườm rà để làm nổi bật nội dung dự án và thông tin cốt lõi.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="card-top-row">
+              <span class="step-badge">02</span>
+              <span class="card-tag">PERFORMANCE FIRST</span>
+            </div>
+            <h3 class="card-heading">Hiệu Năng Vượt Trội</h3>
+            <p class="card-text">
+              Sử dụng 100% HTML/CSS thuần túy không chặn hiển thị, tự động giảm tải hiệu ứng nặng trên di động để đạt điểm PageSpeed tối đa.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <div class="card-top-row">
+              <span class="step-badge">03</span>
+              <span class="card-tag">EYE-CARE UI/UX</span>
+            </div>
+            <h3 class="card-heading">Êm Dịu &amp; Thân Thiện</h3>
+            <p class="card-text">
+              Hệ thống màu Tối (Dark Forest) và Sáng dịu (Warm Sage) chống chói mắt, kết hợp tỷ lệ tương phản chữ $\ge 4.5:1$ giúp đọc lâu không mỏi mắt.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 03: ĐỘI NGŨ SÁNG TẠO (THANH PHƯƠNG, NGỌC HIẾU, TIẾN ĐẠT)
+         ======================================================================== -->
+    <section class="section-block" id="team">
+      <div class="section-wrap">
+        <div class="section-header-bar">
+          <div class="header-bar-left">
+            <div class="eyebrow-pill">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>03 • ĐỘI NGŨ SÁNG TẠO</span>
+            </div>
+            <h2 class="section-title">
+              3 Thành viên kiến tạo <em>dự án nhóm</em>.
+            </h2>
           </div>
-          <div class="principles">
-            <!-- Thẻ 1: Tối giản -->
-            <article class="principle-card">
-              <div class="principle-top">
-                <span class="principle-no">01</span>
-                <span class="principle-icon">✨</span>
+          <p class="section-subtitle">
+            Phân công nhiệm vụ rõ ràng trên từng nhánh Git (Feature Branches) và kiểm duyệt chéo qua Pull Request.
+          </p>
+        </div>
+
+        <div class="cards-grid-3">
+          <!-- Thành viên 1: Thanh Phương -->
+          <article class="member-card">
+            <div class="member-banner banner-one">
+              <span class="member-monogram">TP</span>
+              <span class="member-role-pill">TEAM LEAD • ARCHITECT</span>
+            </div>
+            <div class="member-content">
+              <div class="member-title-row">
+                <div>
+                  <p class="member-subrole">FRONTEND &amp; UI ARCHITECT</p>
+                  <h3 class="member-name">Thanh Phương</h3>
+                </div>
+                <a href="#contact" class="member-action-btn" aria-label="Liên hệ Thanh Phương">↗</a>
               </div>
-              <h3 class="principle-title">Tối Giản &amp; Tinh Tế</h3>
-              <p class="principle-desc">
-                Loại bỏ các yếu tố rườm rà không cần thiết, dồn toàn bộ sự chú ý của người xem vào nội dung trọng tâm và giá trị sản phẩm.
+              <p class="member-desc">
+                Phụ trách kiến trúc tổng thể Semantic HTML5, xây dựng hệ thống biến Design System (Dark/Light), tối ưu hóa hiệu năng và quản lý quy trình Git của nhóm.
               </p>
-            </article>
-
-            <!-- Thẻ 2: Hiệu năng -->
-            <article class="principle-card">
-              <div class="principle-top">
-                <span class="principle-no">02</span>
-                <span class="principle-icon">⚡</span>
+              <div class="member-tags">
+                <span>HTML5 / CSS3</span>
+                <span>Design System</span>
+                <span>Git Lead</span>
               </div>
-              <h3 class="principle-title">Hiệu Năng Vượt Trội</h3>
-              <p class="principle-desc">
-                Cấu trúc mã nguồn thuần gọn nhẹ, tối ưu tài nguyên giúp trang web tải siêu nhanh và mượt mà trên mọi đường truyền.
+            </div>
+          </article>
+
+          <!-- Thành viên 2: Ngọc Hiếu -->
+          <article class="member-card">
+            <div class="member-banner banner-two">
+              <span class="member-monogram">NH</span>
+              <span class="member-role-pill">UI/UX • VISUAL</span>
+            </div>
+            <div class="member-content">
+              <div class="member-title-row">
+                <div>
+                  <p class="member-subrole">UI/UX &amp; VISUAL DESIGNER</p>
+                  <h3 class="member-name">Ngọc Hiếu</h3>
+                </div>
+                <a href="#contact" class="member-action-btn" aria-label="Liên hệ Ngọc Hiếu">↗</a>
+              </div>
+              <p class="member-desc">
+                Định hình phong cách thị giác Bento, thiết kế Wireframe, cân chỉnh bảng màu chống chói chuẩn WCAG AA và tối ưu hóa trải nghiệm điều hướng người dùng.
               </p>
-            </article>
-
-            <!-- Thẻ 3: Thân thiện -->
-            <article class="principle-card">
-              <div class="principle-top">
-                <span class="principle-no">03</span>
-                <span class="principle-icon">🌿</span>
+              <div class="member-tags">
+                <span>UI/UX Design</span>
+                <span>Wireframe</span>
+                <span>Color Tokens</span>
               </div>
-              <h3 class="principle-title">Thân Thiện &amp; Thấu Cảm</h3>
-              <p class="principle-desc">
-                Bố cục hợp lý, khoảng cách chữ vừa vặn cùng các góc bo tròn tự nhiên tạo cảm giác an tâm và gần gũi cho khách hàng.
+            </div>
+          </article>
+
+          <!-- Thành viên 3: Tiến Đạt -->
+          <article class="member-card">
+            <div class="member-banner banner-three">
+              <span class="member-monogram">TĐ</span>
+              <span class="member-role-pill">LAYOUT • QA TESTER</span>
+            </div>
+            <div class="member-content">
+              <div class="member-title-row">
+                <div>
+                  <p class="member-subrole">FRONTEND DEVELOPER &amp; QA</p>
+                  <h3 class="member-name">Tiến Đạt</h3>
+                </div>
+                <a href="#contact" class="member-action-btn" aria-label="Liên hệ Tiến Đạt">↗</a>
+              </div>
+              <p class="member-desc">
+                Triển khai hệ thống lưới CSS Grid &amp; Flexbox đa thiết bị, thiết lập hiệu ứng Micro-interactions mượt mà và kiểm thử độ tương thích từ 320px đến 4K.
               </p>
-            </article>
-          </div>
+              <div class="member-tags">
+                <span>CSS Grid/Flex</span>
+                <span>Responsive</span>
+                <span>W3C &amp; QA</span>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ==========================================================================
-         PHẦN 5: ĐỘI NGŨ SÁNG TẠO (TEAM SECTION)
-         Chức năng: Giới thiệu 3 nhân sự chủ chốt (UI/UX, Frontend, Giám đốc sáng tạo)
-         với các avatar đồ họa và thẻ bo tròn hiện đại.
-         ========================================================================== -->
-    <section class="section-block team-section" id="team">
+    <!-- ========================================================================
+         SECTION 04: DỰ ÁN TIÊU BIỂU (PORTFOLIO SHOWCASE)
+         ======================================================================== -->
+    <section class="section-block section-subtle" id="work">
       <div class="section-wrap">
-        <div class="section-heading">
-          <div class="eyebrow-pill">
-            <span class="status-dot"></span>
-            <span>ĐỘI NGŨ THIẾT KẾ</span>
-          </div>
-          <span class="section-index">[ 03 ]</span>
-        </div>
-
-        <div class="section-title-row">
-          <div>
+        <div class="section-header-bar">
+          <div class="header-bar-left">
+            <div class="eyebrow-pill">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>04 • DỰ ÁN TIÊU BIỂU</span>
+            </div>
             <h2 class="section-title">
-              Những con người tạo nên <em>tuyệt tác số</em>.
+              Sản phẩm thực hành <em>nổi bật</em> của nhóm.
             </h2>
           </div>
           <p class="section-subtitle">
-            Sự phối hợp ăn ý giữa mỹ thuật trực quan, tư duy thiết kế trải nghiệm và kỹ thuật lập trình bài bản.
+            Các dự án giao diện ứng dụng triết lý Mobile-First, bố cục lưới hiện đại và chuẩn hóa W3C.
           </p>
         </div>
 
-        <div class="team-grid-wrapper">
-          <div class="swipe-hint">
-            <span>⟵ Vuốt ngang để xem các thành viên ⟶</span>
-          </div>
-
-          <div class="team-grid">
-            <!-- Thành viên 1: UI/UX Designer -->
-            <article class="person-card">
-              <div class="person-art person-art-one">
-                <span class="avatar-initial">T</span>
-                <div class="person-spark">✦</div>
-                <div class="person-shape"></div>
-                <div class="person-badge">UI/UX</div>
-              </div>
-              <div class="person-body">
-                <div class="person-meta">
-                  <div>
-                    <div class="person-role">LEAD UI/UX DESIGNER</div>
-                    <h3 class="person-name">Trần Minh Anh</h3>
-                  </div>
-                  <div class="person-arrow-btn" aria-hidden="true">↗</div>
+        <div class="projects-grid">
+          <!-- Dự án 1 -->
+          <article class="project-card">
+            <figure class="project-preview preview-cafe">
+              <span class="project-badge">WEB APPLICATION • <time datetime="2026">2026</time></span>
+              <div class="mock-window" aria-hidden="true">
+                <div class="mock-bar">
+                  <span class="dots"><i></i><i></i><i></i></span>
+                  <span class="url">lumiere-cafe.vn</span>
                 </div>
-                <p class="person-bio">
-                  Chuyên gia định hình phong cách thị giác, xây dựng Design System đồng nhất và tối ưu hóa luồng tương tác người dùng.
-                </p>
-              </div>
-            </article>
-
-            <!-- Thành viên 2: Frontend Developer -->
-            <article class="person-card">
-              <div class="person-art person-art-two">
-                <span class="avatar-initial">K</span>
-                <div class="person-sun"></div>
-                <div class="person-badge">DEV</div>
-              </div>
-              <div class="person-body">
-                <div class="person-meta">
-                  <div>
-                    <div class="person-role">FRONTEND DEVELOPER</div>
-                    <h3 class="person-name">Nguyễn Tuấn Khang</h3>
+                <div class="mock-body">
+                  <div class="mock-side">
+                    <span></span><span></span><span></span>
                   </div>
-                  <div class="person-arrow-btn" aria-hidden="true">↗</div>
-                </div>
-                <p class="person-bio">
-                  Biến các ý tưởng thiết kế thành giao diện web sống động, chuẩn Semantic HTML, CSS sắc sảo và mượt mà trên mọi thiết bị.
-                </p>
-              </div>
-            </article>
-
-            <!-- Thành viên 3: Creative Director -->
-            <article class="person-card">
-              <div class="person-art person-art-three">
-                <span class="avatar-initial">H</span>
-                <div class="person-spark">✦</div>
-                <div class="person-badge">DIRECTOR</div>
-              </div>
-              <div class="person-body">
-                <div class="person-meta">
-                  <div>
-                    <div class="person-role">CREATIVE DIRECTOR</div>
-                    <h3 class="person-name">Lê Hoàng Long</h3>
-                  </div>
-                  <div class="person-arrow-btn" aria-hidden="true">↗</div>
-                </div>
-                <p class="person-bio">
-                  Định hướng chiến lược mỹ thuật số, kể câu chuyện thương hiệu độc đáo và kết nối cảm xúc người xem qua từng khung hình.
-                </p>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <div class="team-footer-note">
-          <div class="note-pill">
-            <span class="note-star">✦</span>
-            <span>Mỗi thành viên đều cam kết tiêu chuẩn chất lượng cao nhất cho từng sản phẩm bàn giao.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         PHẦN 6: DỰ ÁN TIÊU BIỂU (WORK / PORTFOLIO)
-         Chức năng: Trưng bày case study thực tế với khung trình duyệt mô phỏng
-         và thẻ ứng dụng số liệu trực quan.
-         ========================================================================== -->
-    <section class="section-block" id="work">
-      <div class="section-wrap">
-        <div class="section-heading">
-          <div class="eyebrow-pill">
-            <span class="status-dot"></span>
-            <span>DỰ ÁN TIÊU BIỂU</span>
-          </div>
-          <span class="section-index">[ 04 ]</span>
-        </div>
-
-        <div class="section-title-row">
-          <div>
-            <h2 class="section-title">
-              Các tác phẩm <em>nổi bật</em> chúng tôi tự hào.
-            </h2>
-          </div>
-          <p class="section-subtitle">
-            Khám phá những dự án website thực tế đã giúp khách hàng nâng tầm nhận diện và đột phá kết quả kinh doanh.
-          </p>
-        </div>
-
-        <div class="project-grid-wrapper">
-          <div class="swipe-hint">
-            <span>⟵ Vuốt ngang để khám phá các dự án ⟶</span>
-          </div>
-
-          <div class="project-grid">
-            <!-- Dự án 1: Trình duyệt mô phỏng -->
-            <article class="project-card project-large">
-              <div class="project-visual visual-portfolio">
-                <div class="visual-tag-pill">CASE STUDY / 2025</div>
-                
-                <div class="mock-browser">
-                  <div class="mock-top">
-                    <div class="mock-dots">
-                      <i></i><i></i><i></i>
-                    </div>
-                    <span class="mock-url">artisan-studio.vn</span>
-                    <span class="mock-lock">🔒</span>
-                  </div>
-                  <div class="mock-content">
-                    <div class="mock-sidebar">
-                      <div class="mock-nav-item active"></div>
-                      <div class="mock-nav-item"></div>
-                      <div class="mock-nav-item"></div>
-                    </div>
-                    <div class="mock-main">
-                      <span class="mock-headline"></span>
-                      <b class="mock-title-bar"></b>
-                      <b class="mock-sub-bar"></b>
-                      <div class="mock-cards">
-                        <div class="mock-card card-a"></div>
-                        <div class="mock-card card-b"></div>
-                        <div class="mock-card card-c"></div>
-                      </div>
+                  <div class="mock-main-area">
+                    <div class="mock-hero-banner"></div>
+                    <div class="mock-grid-3">
+                      <span></span><span></span><span></span>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <div class="project-details">
-                <div class="project-meta">
-                  <h3 class="project-name">Artisan Studio • Branding &amp; Web Experience</h3>
-                  <span class="project-year-pill">2025</span>
-                </div>
-                <p class="project-description">
-                  Trang web danh mục kiến trúc &amp; nội thất cao cấp mang phong cách tối giản hiện đại. Hệ thống phân cấp thị giác tinh tế kết hợp hiệu ứng chuyển cảnh mượt mà.
-                </p>
-                <div class="project-tags">
-                  <span class="p-tag">UI/UX Design</span>
-                  <span class="p-tag">Design System</span>
-                  <span class="p-tag">Responsive HTML/CSS</span>
-                </div>
-                <a href="#contact" class="project-link-btn">
-                  <span>Khám phá chi tiết dự án</span>
-                  <span class="link-arrow">→</span>
-                </a>
+              <figcaption class="sr-only">Giao diện mô phỏng dự án Lumière Cafe</figcaption>
+            </figure>
+            <div class="project-info">
+              <div class="project-head">
+                <h3 class="project-title">Lumière Cafe • Hệ Thống Đặt Món Trực Tuyến</h3>
+                <span class="project-tag-year">UI/UX &amp; Grid</span>
               </div>
-            </article>
+              <p class="project-desc">
+                Giao diện menu đồ uống và giỏ hàng thông minh được thiết kế từ Taskflow đến HTML/CSS hoàn chỉnh, tối ưu vùng chạm trên điện thoại.
+              </p>
+              <div class="project-tech-list">
+                <span>Semantic HTML5</span>
+                <span>CSS Grid Auto-fit</span>
+                <span>Mobile-First</span>
+              </div>
+              <a href="#contact" class="project-cta-link">
+                <span>Xem chi tiết cấu trúc dự án</span>
+                <span class="link-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
 
-            <!-- Dự án 2: Ứng dụng Fintech -->
-            <article class="project-card">
-              <div class="project-visual visual-product">
-                <div class="visual-tag-pill">WEB APP / 2024</div>
-                <div class="product-sun"></div>
-                <div class="product-shape shape-one"></div>
-                <div class="product-shape shape-two"></div>
-                <div class="product-badge">
-                  <span class="product-word">NEXUS</span>
-                  <span class="product-sub">FINANCE PLATFORM</span>
+          <!-- Dự án 2 -->
+          <article class="project-card">
+            <figure class="project-preview preview-portal">
+              <span class="project-badge">NEWS PORTAL • <time datetime="2026">2026</time></span>
+              <div class="mock-window" aria-hidden="true">
+                <div class="mock-bar">
+                  <span class="dots"><i></i><i></i><i></i></span>
+                  <span class="url">nexus-portal.io</span>
+                </div>
+                <div class="mock-body mock-body-portal">
+                  <div class="mock-main-area">
+                    <div class="mock-title-line"></div>
+                    <div class="mock-grid-2">
+                      <span></span><span></span>
+                    </div>
+                  </div>
+                  <div class="mock-right-aside">
+                    <span></span><span></span>
+                  </div>
                 </div>
               </div>
-
-              <div class="project-details">
-                <div class="project-meta">
-                  <h3 class="project-name">Nexus Analytics • Nền Tảng Tài Chính</h3>
-                  <span class="project-year-pill">2024</span>
-                </div>
-                <p class="project-description">
-                  Hệ thống bảng điều khiển số liệu trực quan, đơn giản hóa biểu đồ phức tạp và tối ưu trải nghiệm nhập liệu cho người dùng doanh nghiệp.
-                </p>
-                <div class="project-tags">
-                  <span class="p-tag">Dashboard</span>
-                  <span class="p-tag">Fintech</span>
-                  <span class="p-tag">Web Application</span>
-                </div>
-                <a href="#contact" class="project-link-btn">
-                  <span>Khám phá chi tiết dự án</span>
-                  <span class="link-arrow">→</span>
-                </a>
+              <figcaption class="sr-only">Giao diện mô phỏng cổng tin tức đa thiết bị Nexus</figcaption>
+            </figure>
+            <div class="project-info">
+              <div class="project-head">
+                <h3 class="project-title">Nexus Portal • Trang Tin Tức Đa Thiết Bị</h3>
+                <span class="project-tag-year">Responsive</span>
               </div>
-            </article>
-          </div>
+              <p class="project-desc">
+                Ứng dụng Media Queries linh hoạt: tự động chuyển đổi từ 1 cột trên Mobile sang 2 cột trên Tablet và 3 cột kèm Sidebar trên Desktop.
+              </p>
+              <div class="project-tech-list">
+                <span>Media Queries</span>
+                <span>Flexbox Cards</span>
+                <span>Fluid Typography</span>
+              </div>
+              <a href="#contact" class="project-cta-link">
+                <span>Xem chi tiết cấu trúc dự án</span>
+                <span class="link-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ==========================================================================
-         PHẦN 7: QUY TRÌNH HỢP TÁC (PROCESS WORKFLOW)
-         Chức năng: Trình bày quy trình 4 bước làm việc chuyên nghiệp, minh bạch.
-         ========================================================================== -->
-    <section class="section-block process-section" id="process">
+    <!-- ========================================================================
+         SECTION 05: QUY TRÌNH TRIỂN KHAI & TIÊU CHUẨN (<details> & <summary>)
+         ======================================================================== -->
+    <section class="section-block" id="process">
       <div class="section-wrap">
-        <div class="section-heading">
-          <div class="eyebrow-pill">
-            <span class="status-dot"></span>
-            <span>QUY TRÌNH HỢP TÁC</span>
-          </div>
-          <span class="section-index">[ 05 ]</span>
-        </div>
-
-        <div class="section-title-row">
-          <div>
+        <div class="section-header-bar">
+          <div class="header-bar-left">
+            <div class="eyebrow-pill">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>05 • QUY TRÌNH LÀM VIỆC</span>
+            </div>
             <h2 class="section-title">
-              4 Bước triển khai <em>minh bạch</em> &amp; hiệu quả.
+              4 Bước phối hợp <em>chặt chẽ</em> &amp; minh bạch.
             </h2>
           </div>
           <p class="section-subtitle">
-            Quy trình làm việc rõ ràng giúp tiết kiệm thời gian, tối ưu chi phí và đảm bảo sản phẩm bàn giao luôn đạt độ hoàn thiện cao nhất.
+            Áp dụng quy trình làm việc nhóm chuyên nghiệp từ khâu phân tích DOM đến kiểm thử giao diện.
           </p>
         </div>
 
-        <div class="process-grid-wrapper">
-          <div class="swipe-hint">
-            <span>⟵ Vuốt ngang để xem 4 bước quy trình ⟶</span>
-          </div>
-          <div class="process-grid">
-            <!-- Bước 1 -->
-            <div class="process-card">
-              <span class="process-step-no">01</span>
-              <h3>Khảo sát &amp; Định hướng</h3>
-              <p>Lắng nghe câu chuyện thương hiệu, phân tích đối tượng khách hàng mục tiêu và thiết lập bài toán chuyển đổi cụ thể.</p>
-            </div>
+        <div class="process-grid-4">
+          <article class="process-step-card">
+            <span class="step-badge">01</span>
+            <h3>Phân tích DOM</h3>
+            <p>Phác thảo sơ đồ cây HTML5 ngữ nghĩa từ bản vẽ Wireframe trước khi bắt đầu viết mã nguồn.</p>
+          </article>
 
-            <!-- Bước 2 -->
-            <div class="process-card">
-              <span class="process-step-no">02</span>
-              <h3>Thiết kế UI/UX độc bản</h3>
-              <p>Phác thảo cấu trúc Wireframe, xây dựng hệ thống màu sắc, kiểu chữ và tạo mẫu giao diện tương tác chân thực.</p>
-            </div>
+          <article class="process-step-card">
+            <span class="step-badge">02</span>
+            <h3>Thiết lập Tokens</h3>
+            <p>Khai báo bộ biến màu sắc, cỡ chữ và khoảng cách đồng nhất tại <code>:root</code> cho toàn hệ thống.</p>
+          </article>
 
-            <!-- Bước 3 -->
-            <div class="process-card">
-              <span class="process-step-no">03</span>
-              <h3>Lập trình tối ưu chuẩn</h3>
-              <p>Chuyển hóa bản vẽ thành mã nguồn HTML/CSS sạch sẽ, tải siêu tốc và tương thích hoàn hảo trên mọi kích cỡ màn hình.</p>
-            </div>
+          <article class="process-step-card">
+            <span class="step-badge">03</span>
+            <h3>Dàn trang đa tầng</h3>
+            <p>Phối hợp CSS Grid cho khung lớn và Flexbox cho các thành phần con trên nhánh Git riêng.</p>
+          </article>
 
-            <!-- Bước 4 -->
-            <div class="process-card">
-              <span class="process-step-no">04</span>
-              <h3>Kiểm thử &amp; Bàn giao</h3>
-              <p>Rà soát kỹ lưỡng trên các thiết bị thực tế, nghiệm thu tỉ mỉ và đồng hành hỗ trợ bảo trì dài lâu.</p>
+          <article class="process-step-card">
+            <span class="step-badge">04</span>
+            <h3>Review &amp; Kiểm thử</h3>
+            <p>Kiểm tra chéo Pull Request, xác thực W3C Validator và đo điểm hiệu năng Lighthouse.</p>
+          </article>
+        </div>
+
+        <!-- Khối <details> & <summary> gọn gàng minh họa thẻ ngữ nghĩa tương tác (Tuần 2) -->
+        <div class="faq-compact">
+          <details class="faq-box">
+            <summary class="faq-summary">
+              <span>Tiêu chuẩn kỹ thuật nào được áp dụng để đảm bảo trang web không bị lỗi trên mọi thiết bị?</span>
+              <span class="faq-plus" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-content">
+              <p>
+                Trang web sử dụng đơn vị tương đối (<code>rem</code>, <code>%</code>, <code>fr</code>, <code>clamp()</code>), khóa tràn ngang tuyệt đối bằng <code>overflow-x: clip</code>, đảm bảo kích thước nút bấm tối thiểu <code>44x44px</code> và đã vượt qua kiểm thử tại các độ phân giải 320px, 768px, 1024px và 1440px+.
+              </p>
             </div>
-          </div>
+          </details>
         </div>
       </div>
     </section>
 
-    <!-- ==========================================================================
-         PHẦN 8: LIÊN HỆ HỢP TÁC (CONTACT CTA BOX)
-         Chức năng: Hộp màu xanh lục bảo bo góc 32px lớn, nổi bật lời kêu gọi hành động
-         và các kênh liên hệ trực tiếp (Email, Hotline, Văn phòng).
-         ========================================================================== -->
-    <section class="section-wrap contact-wrap" id="contact">
-      <div class="contact-box">
-        <div class="contact-pattern" aria-hidden="true">✦</div>
-        
-        <div class="contact-content">
-          <div class="eyebrow-pill eyebrow-light">
-            <span class="status-dot dot-leaf"></span>
-            <span>BẮT ĐẦU DỰ ÁN</span>
-          </div>
-
-          <h2 class="contact-heading">
-            Bạn đã sẵn sàng tạo nên điều <em>phi thường</em> cùng chúng tôi?
-          </h2>
-
-          <p class="contact-copy">
-            Hãy chia sẻ câu chuyện và mong muốn của bạn. Chúng tôi luôn sẵn lòng lắng nghe, tư vấn giải pháp thiết kế tối ưu và đồng hành cùng bạn từ ý tưởng ban đầu đến sản phẩm hoàn thiện.
-          </p>
-
-          <div class="contact-actions">
-            <a href="mailto:contact@nhomthietkeweb.vn" class="button button-light">
-              <span class="btn-icon">✉</span>
-              <span>Gửi yêu cầu hợp tác</span>
-              <span class="btn-arrow">→</span>
-            </a>
-            <a href="tel:+84901234567" class="button button-ghost">
-              <span class="btn-icon">✆</span>
-              <span>Gọi tư vấn nhanh</span>
-            </a>
-          </div>
-
-          <div class="contact-info-grid">
-            <div class="info-pill">
-              <span class="info-label">Email hỗ trợ:</span>
-              <strong class="info-val">contact@nhomthietkeweb.vn</strong>
+    <!-- ========================================================================
+         SECTION 06: LIÊN HỆ HỢP TÁC (CONTACT & FORM CHUẨN UI CHECKLIST)
+         ======================================================================== -->
+    <section class="section-block contact-section" id="contact">
+      <div class="section-wrap">
+        <div class="contact-card">
+          <div class="contact-left">
+            <div class="eyebrow-pill eyebrow-light">
+              <span class="status-dot dot-leaf" aria-hidden="true"></span>
+              <span>06 • KẾT NỐI VỚI NHÓM</span>
             </div>
-            <div class="info-pill">
-              <span class="info-label">Hotline:</span>
-              <strong class="info-val">+84 (0) 90 123 4567</strong>
-            </div>
-            <div class="info-pill">
-              <span class="info-label">Địa điểm:</span>
-              <strong class="info-val">Hà Nội &amp; TP. HCM</strong>
+
+            <h2 class="contact-title">
+              Trao đổi về <em>dự án</em> hoặc đóng góp ý kiến cho nhóm.
+            </h2>
+
+            <p class="contact-desc">
+              Nhóm luôn sẵn sàng lắng nghe nhận xét từ giảng viên và khách hàng để hoàn thiện sản phẩm ngày một tốt hơn.
+            </p>
+
+            <div class="contact-chips">
+              <a href="mailto:contact@nhomthietkeweb.vn" class="contact-chip">
+                <span>Email:</span>
+                <strong>contact@nhomthietkeweb.vn</strong>
+              </a>
+              <div class="contact-chip">
+                <span>Thành viên:</span>
+                <strong>Thanh Phương • Ngọc Hiếu • Tiến Đạt</strong>
+              </div>
             </div>
           </div>
+
+          <!-- Form liên hệ có đầy đủ placeholder và báo lỗi tự động bằng CSS -->
+          <form class="contact-form" action="#contact" method="get">
+            <div class="form-row-2">
+              <div class="form-field">
+                <label for="sender-name" class="form-label">Họ và tên *</label>
+                <input
+                  type="text"
+                  id="sender-name"
+                  name="name"
+                  class="form-input"
+                  placeholder="Nhập tên của bạn..."
+                  required
+                  minlength="2">
+                <span class="form-error">Vui lòng nhập ít nhất 2 ký tự.</span>
+              </div>
+
+              <div class="form-field">
+                <label for="sender-email" class="form-label">Email liên hệ *</label>
+                <input
+                  type="email"
+                  id="sender-email"
+                  name="email"
+                  class="form-input"
+                  placeholder="ten@email.com"
+                  required>
+                <span class="form-error">Vui lòng nhập đúng định dạng email.</span>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="sender-msg" class="form-label">Nội dung lời nhắn *</label>
+              <textarea
+                id="sender-msg"
+                name="message"
+                class="form-input form-textarea"
+                rows="3"
+                placeholder="Nhập nội dung trao đổi hoặc góp ý cho nhóm..."
+                required
+                minlength="10"></textarea>
+              <span class="form-error">Vui lòng nhập nội dung tối thiểu 10 ký tự.</span>
+            </div>
+
+            <button type="submit" class="button button-primary form-submit">
+              <span>Gửi lời nhắn ngay</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </button>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
   <!-- ==========================================================================
-       PHẦN 9: CHÂN TRANG (SITE FOOTER)
-       Chức năng: Bản quyền tác giả, thương hiệu và nút cuộn về đầu trang.
+       3. CHÂN TRANG (FOOTER)
        ========================================================================== -->
-  <footer class="site-footer section-wrap">
-    <div class="footer-brand">
-      <div class="brand-mark">
-        <span></span>
-        <span></span>
-        <span></span>
+  <footer class="site-footer">
+    <div class="section-wrap footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span class="brand-name">STUDIO<span class="brand-dot">.</span>LAB</span>
       </div>
-      <span class="brand-name">STUDIO<span class="brand-dot">.</span>LAB</span>
+
+      <p class="footer-copy">
+        © <time datetime="2026">2026</time> Thực hiện bởi <strong>Thanh Phương, Ngọc Hiếu, Tiến Đạt</strong> • Học phần Thiết kế Web.
+      </p>
+
+      <a href="#top" class="back-top-pill" aria-label="Cuộn về đầu trang">
+        <span>VỀ ĐẦU TRANG</span>
+        <span class="top-arrow" aria-hidden="true">↑</span>
+      </a>
     </div>
-
-    <p class="footer-copy">
-      © 2026 Nhóm Thiết Kế Web. Thiết kế tỉ mỉ với niềm đam mê sáng tạo số.
-    </p>
-
-    <a href="#hero" class="back-top-pill" aria-label="Cuộn về đầu trang">
-      <span>VỀ ĐẦU TRANG</span>
-      <span class="top-arrow">↑</span>
-    </a>
   </footer>
 </body>
 </html>
