@@ -618,7 +618,7 @@
           </div>
 
           <!-- Form liên hệ có đầy đủ placeholder và báo lỗi tự động bằng CSS -->
-          <form class="contact-form" action="mailto:contact@nhomthietkeweb.vn" method="post" enctype="text/plain">
+<form class="contact-form" action="#contact" method="get">
 <p class="form-note">Điền lời nhắn để chuẩn bị email. Bạn sẽ xem lại và gửi bằng ứng dụng email của mình.</p>
             <div class="form-row-2">
               <div class="form-field">
@@ -666,13 +666,13 @@ aria-describedby="sender-msg-error"
               <span class="form-error" id="sender-msg-error">Vui lòng nhập nội dung tối thiểu 10 ký tự.</span>
             </div>
 
-            <button type="submit" class="button button-primary form-submit">
+<button type="submit" class="button button-primary form-submit" disabled>
               <span>Chuẩn bị email</span>
               <span class="btn-arrow" aria-hidden="true">→</span>
             </button>
           <p id="form-status" class="form-status" role="status" aria-live="polite" hidden></p>
 <a id="email-draft" class="button button-outline" hidden>Mở ứng dụng email <span aria-hidden="true">↗</span></a>
-<noscript><p class="form-note">Bạn có thể gửi email trực tiếp qua liên kết bên cạnh.</p></noscript>
+<noscript><p class="form-note">Bật JavaScript để chuẩn bị email, hoặc gửi email trực tiếp qua liên kết bên cạnh.</p></noscript>
 </form>
         </div>
       </div>
@@ -769,6 +769,7 @@ aria-describedby="sender-msg-error"
   const emailLink = document.querySelector('.contact-chip[href^="mailto:"]');
 
   if (form) {
+    form.querySelector('button[type="submit"]').disabled = false;
     const nameInput = form.querySelector('[name="name"]');
     const messageInput = form.querySelector('[name="message"]');
 
