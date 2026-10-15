@@ -5,18 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Portfolio Nhóm Thiết Kế Web STUDIO.LAB - Thanh Phương, Ngọc Hiếu, Tiến Đạt. Giao diện chuẩn Semantic HTML5, CSS Grid/Flexbox, Responsive và tối ưu PageSpeed.">
   <meta name="theme-color" content="#0d1714">
+<script>try{if(localStorage.getItem('studio-theme')==='light')document.documentElement.dataset.theme='light'}catch{}</script>
   <title>STUDIO.LAB • Portfolio Nhóm Thiết Kế Web</title>
 
   <!-- Favicon SVG nội tuyến: Hiển thị sắc nét trên tab trình duyệt, không lỗi 404 -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23143e33'/%3E%3Crect x='15' y='28' width='8' height='22' rx='4' transform='skewX(-14)' fill='%23ffffff'/%3E%3Crect x='28' y='14' width='8' height='36' rx='4' transform='skewX(-14)' fill='%23b5d34a'/%3E%3Crect x='41' y='21' width='8' height='29' rx='4' transform='skewX(-14)' fill='%23f08a58'/%3E%3C/svg%3E">
 
-  <!-- Google Fonts chuẩn tiếng Việt -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=Lora:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
-  <!-- Liên kết tới file style.css -->
-  <link rel="stylesheet" href="style.css?v=20261015-studiolab">
 </head>
 <body id="top">
   <!-- Phím tắt trợ năng cho người dùng bàn phím -->
@@ -28,7 +24,7 @@
        ========================================================================== -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="#top" class="brand" aria-label="Về đầu trang STUDIO.LAB">
+      <a href="#top" class="brand" title="Về đầu trang">
         <span class="brand-mark" aria-hidden="true">
           <span></span>
           <span></span>
@@ -125,7 +121,7 @@
           </div>
 
           <ul class="hero-feature-tags" aria-label="Tiêu chuẩn kỹ thuật">
-            <li class="feature-tag"><span class="tag-icon" aria-hidden="true">✦</span> W3C Validated</li>
+            <li class="feature-tag"><span class="tag-icon" aria-hidden="true">✦</span> HTML ngữ nghĩa</li>
             <li class="feature-tag"><span class="tag-icon" aria-hidden="true">✦</span> Anti-Glare Theme</li>
             <li class="feature-tag"><span class="tag-icon" aria-hidden="true">✦</span> Responsive 320px–4K</li>
           </ul>
@@ -180,8 +176,8 @@
           <!-- Thẻ Bento 3: Điểm hiệu năng -->
           <div class="bento-card bento-score">
             <span class="bento-label">HIỆU NĂNG</span>
-            <div class="score-circle">98<span>+</span></div>
-            <p class="bento-sub-text">Google PageSpeed &amp; Tương phản WCAG AA</p>
+            <div class="score-circle">95<span>+</span></div>
+            <p class="bento-sub-text">Mục tiêu PageSpeed · Tối ưu cho thiết bị di động</p>
           </div>
           <figcaption class="sr-only">Tóm tắt hồ sơ năng lực và đội ngũ thiết kế web STUDIO.LAB</figcaption>
         </figure>
@@ -225,7 +221,7 @@
                 <span>Vùng chạm tiêu chuẩn</span>
               </div>
               <div class="mini-stat-box">
-                <strong>&lt; 1.0s</strong>
+                <strong>&lt; 1.8s</strong>
                 <span>Tải trang lần đầu (FCP)</span>
               </div>
             </div>
@@ -310,7 +306,7 @@
             </div>
             <h3 class="card-heading">Êm Dịu &amp; Thân Thiện</h3>
             <p class="card-text">
-              Hệ thống màu Tối (Dark Forest) và Sáng dịu (Warm Sage) chống chói mắt, kết hợp tỷ lệ tương phản chữ $\ge 4.5:1$ giúp đọc lâu không mỏi mắt.
+              Hệ thống màu Tối (Dark Forest) và Sáng dịu (Warm Sage) chống chói mắt, kết hợp tỷ lệ tương phản chữ ≥ 4.5:1 giúp đọc lâu không mỏi mắt.
             </p>
           </article>
         </div>
@@ -622,19 +618,22 @@
           </div>
 
           <!-- Form liên hệ có đầy đủ placeholder và báo lỗi tự động bằng CSS -->
-          <form class="contact-form" action="#contact" method="get">
+          <form class="contact-form" action="mailto:contact@nhomthietkeweb.vn" method="post" enctype="text/plain">
+<p class="form-note">Điền lời nhắn để chuẩn bị email. Bạn sẽ xem lại và gửi bằng ứng dụng email của mình.</p>
             <div class="form-row-2">
               <div class="form-field">
                 <label for="sender-name" class="form-label">Họ và tên *</label>
                 <input
                   type="text"
                   id="sender-name"
+autocomplete="name"
+aria-describedby="sender-name-error"
                   name="name"
                   class="form-input"
                   placeholder="Nhập tên của bạn..."
                   required
                   minlength="2">
-                <span class="form-error">Vui lòng nhập ít nhất 2 ký tự.</span>
+                <span class="form-error" id="sender-name-error">Vui lòng nhập ít nhất 2 ký tự.</span>
               </div>
 
               <div class="form-field">
@@ -642,11 +641,13 @@
                 <input
                   type="email"
                   id="sender-email"
+autocomplete="email"
+aria-describedby="sender-email-error"
                   name="email"
                   class="form-input"
                   placeholder="ten@email.com"
                   required>
-                <span class="form-error">Vui lòng nhập đúng định dạng email.</span>
+                <span class="form-error" id="sender-email-error">Vui lòng nhập đúng định dạng email.</span>
               </div>
             </div>
 
@@ -654,20 +655,25 @@
               <label for="sender-msg" class="form-label">Nội dung lời nhắn *</label>
               <textarea
                 id="sender-msg"
+autocomplete="off"
+aria-describedby="sender-msg-error"
                 name="message"
                 class="form-input form-textarea"
                 rows="3"
                 placeholder="Nhập nội dung trao đổi hoặc góp ý cho nhóm..."
                 required
                 minlength="10"></textarea>
-              <span class="form-error">Vui lòng nhập nội dung tối thiểu 10 ký tự.</span>
+              <span class="form-error" id="sender-msg-error">Vui lòng nhập nội dung tối thiểu 10 ký tự.</span>
             </div>
 
             <button type="submit" class="button button-primary form-submit">
-              <span>Gửi lời nhắn ngay</span>
+              <span>Chuẩn bị email</span>
               <span class="btn-arrow" aria-hidden="true">→</span>
             </button>
-          </form>
+          <p id="form-status" class="form-status" role="status" aria-live="polite" hidden></p>
+<a id="email-draft" class="button button-outline" hidden>Mở ứng dụng email <span aria-hidden="true">↗</span></a>
+<noscript><p class="form-note">Bạn có thể gửi email trực tiếp qua liên kết bên cạnh.</p></noscript>
+</form>
         </div>
       </div>
     </section>
@@ -697,5 +703,116 @@
       </a>
     </div>
   </footer>
+<script>
+(() => {
+  'use strict';
+
+  const root = document.documentElement;
+  const themeSwitch = document.querySelector('#theme-switch');
+
+  window.addEventListener('pageshow', () => {
+    if (!window.location.hash) return;
+    let targetId;
+    try {
+      targetId = decodeURIComponent(window.location.hash.slice(1));
+    } catch {
+      return;
+    }
+    const target = document.getElementById(targetId);
+    if (target) {
+      requestAnimationFrame(() => {
+        target.scrollIntoView({ behavior: 'instant', block: 'start' });
+      });
+    }
+  });
+
+  if (themeSwitch) {
+    const isLight = root.dataset.theme === 'light';
+    if (themeSwitch.checked !== isLight) themeSwitch.checked = isLight;
+    themeSwitch.addEventListener('change', () => {
+      const theme = themeSwitch.checked ? 'light' : 'dark';
+      root.dataset.theme = theme;
+      try {
+        localStorage.setItem('studio-theme', theme);
+      } catch {
+        // Theme switching still works when browser storage is unavailable.
+      }
+    });
+  }
+
+  const menu = document.querySelector('details.mobile-menu');
+
+  if (menu) {
+    menu.addEventListener('click', (event) => {
+      if (event.target instanceof Element && event.target.closest('a[href^="#"]')) {
+        menu.open = false;
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.open) {
+        menu.open = false;
+        menu.querySelector('summary')?.focus();
+      }
+    });
+
+    document.addEventListener('pointerdown', (event) => {
+      if (menu.open && event.target instanceof Node && !menu.contains(event.target)) {
+        menu.open = false;
+      }
+    });
+  }
+
+  const form = document.querySelector('.contact-form');
+  const status = document.querySelector('#form-status');
+  const draftLink = document.querySelector('#email-draft');
+  const emailLink = document.querySelector('.contact-chip[href^="mailto:"]');
+
+  if (form) {
+    const nameInput = form.querySelector('[name="name"]');
+    const messageInput = form.querySelector('[name="message"]');
+
+    form.addEventListener('input', (event) => {
+      if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) {
+        event.target.setCustomValidity('');
+      }
+      if (draftLink) {
+        draftLink.hidden = true;
+        draftLink.removeAttribute('href');
+      }
+      if (status) {
+        status.hidden = true;
+        status.textContent = '';
+      }
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const fields = new FormData(form);
+      const name = String(fields.get('name') || '').trim();
+      const email = String(fields.get('email') || '').trim();
+      const message = String(fields.get('message') || '').trim();
+
+      nameInput?.setCustomValidity(name.length >= 2 ? '' : 'Vui lòng nhập tên có ít nhất 2 ký tự, không tính khoảng trắng ở đầu và cuối.');
+      messageInput?.setCustomValidity(message.length >= 10 ? '' : 'Vui lòng nhập lời nhắn có ít nhất 10 ký tự, không tính khoảng trắng ở đầu và cuối.');
+      if (!form.reportValidity()) return;
+
+      const recipient = emailLink?.getAttribute('href')?.split('?')[0];
+      if (!status || !draftLink || !recipient) return;
+
+      const query = new URLSearchParams({
+        subject: `Lời nhắn từ ${name} · STUDIO.LAB`,
+        body: `Họ và tên: ${name}\nEmail liên hệ: ${email}\n\n${message}`,
+      }).toString().replace(/\+/g, '%20');
+
+      draftLink.href = `${recipient}?${query}`;
+      draftLink.hidden = false;
+      status.textContent = 'Bản nháp đã sẵn sàng. Mở ứng dụng email bằng liên kết bên dưới để kiểm tra nội dung trước khi gửi. Chưa có lời nhắn nào được gửi.';
+      status.hidden = false;
+    });
+  }
+})();
+
+</script>
 </body>
 </html>
